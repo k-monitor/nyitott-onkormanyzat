@@ -40,8 +40,8 @@ const Menu = () => {
                         </div>
 
                         <ul className={styles.menulist}>
-                            <li><a href="/" onClick={closeMenu}>Térkép</a></li>
-                            <li><a href="/about" onClick={closeMenu}>Mi ez?</a></li>
+                            <li><a href="/onkormi-map" onClick={closeMenu}>Térkép</a></li>
+                            <li><a href="/onkormi-map/about.html" onClick={closeMenu}>Mi ez?</a></li>
                             <li><a href="https://tamogatas.k-monitor.hu/" onClick={closeMenu}>Tetszik? Támogasd!</a></li>
                         </ul>
 
