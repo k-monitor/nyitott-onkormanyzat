@@ -11,7 +11,7 @@ import logoEn from "../../assets/nh-logo-en.svg";
 import { CSSTransition } from "react-transition-group";
 import { useEffect, useContext } from "react";
 import { MapContext } from "../context";
-
+import { config } from "src/config";
 
 const Menu = () => {
     const menuRef = useRef(null);
@@ -40,8 +40,8 @@ const Menu = () => {
                         </div>
 
                         <ul className={styles.menulist}>
-                            <li><a href="/onkormi-map" onClick={closeMenu}>Térkép</a></li>
-                            <li><a href="/onkormi-map/about.html" onClick={closeMenu}>Mi ez?</a></li>
+                            <li><a href={config.prefix+'/'+"onkormi-map"} onClick={closeMenu}>Térkép</a></li>
+                            <li><a href={config.prefix+'/'+"onkormi-map/about.html"} onClick={closeMenu}>Mi ez?</a></li>
                             <li><a href="https://tamogatas.k-monitor.hu/" onClick={closeMenu}>Tetszik? Támogasd!</a></li>
                         </ul>
 

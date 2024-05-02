@@ -4,6 +4,8 @@ import { MapContext } from "../../context";
 import { useEffect, useState, useReducer, lazy, Suspense } from "react";
 import reducer, { initialState } from "../../reducer";
 import Layout from '@components/Layout';
+import { generateImage } from 'src/img_gen';
+import { config } from 'src/config';
 
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
@@ -22,12 +24,23 @@ export async function getStaticProps({ params }) {
 
   const pageData = records.find(item => item.id.toLowerCase().replace(/ /g, '-') === params.slug);
 
+  const ogImage = await generateImage({
+    outputName: pageData.id,
+    options: {
+      width: 1200,
+      height: 630,
+      img: pageData.img,
+      name: pageData.name,
+      description: pageData.program,
+    }
+  })
+
   return {
-    props: { pageData },
+    props: { pageData, ogImage },
   };
 }
 
-export default function Page({ pageData, props }) {
+export default function Page({ pageData, ogImage, props }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const mapData = { ...state, dispatch };
 
@@ -40,7 +53,7 @@ export default function Page({ pageData, props }) {
       <meta name="description" content={'todo'} />
       <meta property="og:title" content={pageData.name} />
       <meta property="og:description" content={'todo'} />
-      <meta property="og:image" content={pageData.img} />
+      <meta property="og:image" content={config.prefix+'/'+ogImage} />
       {/* <meta property="og:url" content="" /> */}
       <meta property="og:type" content="website" />
     </Head>

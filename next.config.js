@@ -2,10 +2,11 @@ const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 
 /** @type {import('next').NextConfig} */
-
 const nextConfig = {
-  reactStrictMode: true,  output: 'export',
-  webpack: (config) => {
+  reactStrictMode: true,
+  // transpilePackages: ["react-leaflet-cluster"],
+  output: 'export',
+  webpack: (config, options) => {
     config.plugins.push(
       new CopyPlugin({
         patterns: [

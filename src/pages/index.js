@@ -1,24 +1,19 @@
 import Head from 'next/head';
 import Layout from '@components/Layout';
-import Section from '@components/Section';
 import Map from '@components/Map';
 import Button from '@components/ui/Button';
 import { fetchCsv } from '../utils/fetchCsv';
 import { MapContext } from "../context";
-import { useEffect, useState, useReducer, lazy, Suspense } from "react";
+import { useReducer } from "react";
 import reducer, { initialState } from "../reducer";
 import styles from "../css/map.module.css";
-import CloseIcon from "../../assets/close-icon.svg";
-import ArrowIcon from "../../assets/arrow-icon.svg";
 import popStyles from "../css/Popup.module.css";
-
-//import styles from '@styles/Home.module.scss';
-
+import { config } from "src/config";
 import fs from 'fs';
 import path from 'path';
 
-const DEFAULT_CENTER = [47.497913, 19.040236]
 
+const DEFAULT_CENTER = [47.497913, 19.040236]
 
 export async function getStaticProps() {
   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
@@ -48,6 +43,7 @@ export default function Home({ records, data, props }) {
                   url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                   attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
                 />
+                {/* <MarkerClusterGroup> */}
                 {records.map((record) => (
                   <Marker key={record.id} position={[record.lat,record.long]}>
                     <Popup className={popStyles.popup} >
@@ -55,10 +51,11 @@ export default function Home({ records, data, props }) {
                       <p> {record.district}</p>
                       <img src={record.img}></img>
                       <p>{record.program}</p>
-                      <Button isPlainAnchor={true} href={"/onkormi-map/candidates/"+record.id+'.html'}>Részletek</Button>
+                      <Button isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+'.html'}>Részletek</Button>
                     </Popup>
                   </Marker>
                 ))}
+                {/* </MarkerClusterGroup> */}
               </>
             )}
           </Map>

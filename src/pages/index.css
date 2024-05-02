@@ -90,3 +90,9 @@ h1 {
 .leaflet-popup-content, .leaflet-popup-content-wrapper {
     width: auto !important;
 }
+
+.leaflet-popup-close-button {
+    width: 50px !important;
+    height: 50px !important;
+    font: 30px / 40px Tahoma, Verdana, sans-serif !important;
+}
