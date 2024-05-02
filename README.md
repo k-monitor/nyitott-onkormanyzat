@@ -1,5 +1,13 @@
 # onkormi map
 
+Ez egy next.js projekt, amiből egy github actions generál statikus oldalt és github pagesen publikálja: https://boapps.github.io/onkormi-map/
+
+Az oldalt a [nerhotel](https://github.com/Code-for-Hungary/nerhotel) ihlette és sok kód lett átvéve onnan.
+
+Ahhoz hasonlóan ez a projekt is leaflet mapot használ.
+
+Emellett segített az elindulásban a [next-leaflet-starter](https://next-leaflet-starter.netlify.app/) 
+
 ### határok
 
 A `kozig.geojson`-ban vannak a budapesti kerületek és a 30 000 fő feletti települések közigazgatási határai.
