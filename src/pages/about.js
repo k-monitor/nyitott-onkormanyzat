@@ -1,7 +1,16 @@
+import Layout from '@components/Layout';
 import Head from 'next/head';
+import { MapContext } from "../context";
+import { useEffect, useState, useReducer, lazy, Suspense } from "react";
+import reducer, { initialState } from "../reducer";
 
-export default function About() {
+export default function About(props) {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const mapData = { ...state, dispatch };
+
   return (
+      <MapContext.Provider value={mapData}>
+      <Layout {...props} >
     <div>
       <Head>
         <title>Info</title>
@@ -38,5 +47,7 @@ export default function About() {
         }
       `}</style>
     </div>
+    </Layout>
+    </MapContext.Provider>
   );
 }
