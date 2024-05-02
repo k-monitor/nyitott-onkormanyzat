@@ -55,7 +55,7 @@ export default function Home({ records, data, props }) {
                       <p> {record.district}</p>
                       <img src={record.img}></img>
                       <p>{record.program}</p>
-                      <Button isPlainAnchor={true} href={"/candidates/"+record.id+'.html'}>Részletek</Button>
+                      <Button isPlainAnchor={true} href={"/onkormi-map/candidates/"+record.id+'.html'}>Részletek</Button>
                     </Popup>
                   </Marker>
                 ))}
