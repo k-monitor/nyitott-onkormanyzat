@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 import Icon from "../components/ui/Icon";
 import ListIcon from "../../assets/menu-icon.svg";
 
-import logo from "../../assets/nh-logo.svg";
+import Logo from "../../assets/nh-logo.svg";
 import logoEn from "../../assets/nh-logo-en.svg";
 import { MapContext } from "../context";
 
@@ -37,22 +37,15 @@ const Header = (props) => {
     return (
         <header className={styles.header}>
             <div className={styles.logoContainer}>
-                {/* <SmartLink
-                    to="/"
+                <a
+                    href={config.prefix}
                     onClick={() => {
                         dispatch({ type: "TogglePopup", showPopup: false });
                     }}
                     className={styles.logo}
                 >
-                    <img
-                        src={resolvedLanguage === "hu" ? logo : logoEn}
-                        alt=""
-                        width="27"
-                        height="64"
-                        style={{ aspectRatio: "27 / 64" }}
-                        className={styles.logo}
-                    />
-                </SmartLink> */}
+                    <Logo/>
+                </a>
             </div>
             <div className={styles.searchContainer}>
                 <Search />
