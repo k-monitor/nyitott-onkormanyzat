@@ -60,7 +60,7 @@ const Menu = () => {
                                 1062 Budapest, Bajza u. 23 I/1
 
                             </p>
-                            <a href="info@k-monitor.hu">info@k-monitor.hu</a>
+                            <a href="mailto:info@k-monitor.hu">info@k-monitor.hu</a>
                         </address>
                     </div>
                 </nav>
