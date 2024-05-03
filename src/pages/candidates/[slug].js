@@ -58,11 +58,17 @@ export default function Page({ pageData, ogImage, props }) {
       <meta property="og:type" content="website" />
     </Head>
 
-    <div>
-      <h1>{pageData.name}</h1>
-      <p>{pageData.district}</p>
+    <div style={{position: 'relative'}}>
+      <h1 style={{marginBottom: "4px"}}>{pageData.name}</h1>
+      <p style={{marginTop: "0"}}>{pageData.district}</p>
       <img src={pageData.img} width="400"></img>
+      <p style={{marginTop: "0"}}>{pageData.organisation} jelöltje</p>
+      <h2 style={{marginBottom: "0"}}>Program</h2>
       <p>{pageData.program}</p>
+      <h2 style={{marginBottom: "0"}}>Problémák</h2>
+      <p>{pageData.problems}</p>
+      <h2 style={{marginBottom: "0"}}>Részletek</h2>
+      <p>{pageData.details}</p>
     </div>
     </Layout>
     </MapContext.Provider>
