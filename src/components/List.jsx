@@ -10,20 +10,6 @@ import { MapContext } from "../context";
 function List() {
     const { dispatch, list, map } = useContext(MapContext);
 
-    const showItem = useCallback(
-        (item) => () => {
-            const [lat, lng] = item.geometry.coordinates;
-            if (map) {
-                map.setView([lat, lng], 18);
-            }
-            dispatch({ type: "SetCenter", center: [lat, lng] });
-            dispatch({ type: "SetSelectedPoint", point: item });
-            dispatch({ type: "ToggleList", showList: false });
-            dispatch({ type: "TogglePopup", showPopup: true });
-        },
-        [map, dispatch]
-    );
-
     const closeList = useCallback(() => {
         dispatch({ type: "ToggleList", showList: false });
     }, [dispatch]);
@@ -34,7 +20,7 @@ function List() {
                 <Icon img={closeIcon} size="large" />
             </div>
             <div className={styles.listWrapper}>
-                {list && list.length > 0 && list.map((item, key) => <ListItem key={key} item={item} onClick={showItem(item)} />)}
+                {list && list.length > 0 && list.map((item, key) => <ListItem key={key} item={item} />)}
 
                 {list.length === 0 && (
                     <p>

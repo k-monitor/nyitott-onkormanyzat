@@ -3,7 +3,7 @@ import Layout from '@components/Layout';
 import Map from '@components/Map';
 import Button from '@components/ui/Button';
 import { fetchCsv } from '../utils/fetchCsv';
-import { MapContext } from "../context";
+import { MapContext, HotelContext } from "../context";
 import { useReducer } from "react";
 import reducer, { initialState } from "../reducer";
 import styles from "../css/map.module.css";
@@ -11,6 +11,8 @@ import popStyles from "../css/Popup.module.css";
 import { config } from "src/config";
 import fs from 'fs';
 import path from 'path';
+// import MarkerClusterGroup from 'react-leaflet-cluster'
+import { useState } from "react";
 
 
 const DEFAULT_CENTER = [47.497913, 19.040236]
@@ -27,6 +29,7 @@ export async function getStaticProps() {
 
 export default function Home({ records, data, props }) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [hotels, setHotels] = useState(records);
   const mapData = { ...state, dispatch };
 
   return (
@@ -34,33 +37,35 @@ export default function Home({ records, data, props }) {
       <Head>
 
       </Head>
-      <MapContext.Provider value={mapData}>
-        <Layout {...props} >
-          <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={12} jsonData={data} >
-            {({ TileLayer, Marker, Popup }) => (
-              <>
-                <TileLayer
-                  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                  attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
-                />
-                {/* <MarkerClusterGroup> */}
-                {records.map((record) => (
-                  <Marker key={record.id} position={[record.lat,record.long]}>
-                    <Popup className={popStyles.popup} >
-                      <h1>{record.name}</h1>
-                      <p> {record.district}</p>
-                      <img src={record.img}></img>
-                      <p>{record.program}</p>
-                      <Button isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+'.html'}>Részletek</Button>
-                    </Popup>
-                  </Marker>
-                ))}
-                {/* </MarkerClusterGroup> */}
-              </>
-            )}
-          </Map>
-        </Layout>
-      </MapContext.Provider>
+      <HotelContext.Provider value={{ hotels }}>
+        <MapContext.Provider value={mapData}>
+          <Layout {...props} >
+            <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={12} jsonData={data} >
+              {({ TileLayer, Marker, Popup }) => (
+                <>
+                  <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                    attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
+                  />
+                  {/* <MarkerClusterGroup> */}
+                  {records.map((record) => (
+                    <Marker key={record.id} position={[record.lat,record.long]}>
+                      <Popup className={popStyles.popup} >
+                        <h1>{record.name}</h1>
+                        <p> {record.district}</p>
+                        <img src={record.img}></img>
+                        <p>{record.program}</p>
+                        <Button isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+'.html'}>Részletek</Button>
+                      </Popup>
+                    </Marker>
+                  ))}
+                  {/* </MarkerClusterGroup> */}
+                </>
+              )}
+            </Map>
+          </Layout>
+        </MapContext.Provider>
+      </HotelContext.Provider>
     </>
   )
 }

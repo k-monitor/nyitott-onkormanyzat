@@ -16,6 +16,10 @@ const Layout = ({ children, className, ...rest }) => {
       dispatch({ type: "ToggleMenu", showMenu: false });
   }, [dispatch]);
 
+  const { showList } = useContext(MapContext);
+  useEffect(() => {
+    dispatch({ type: "ToggleMenu", showList: false });
+}, [dispatch]);
 
   return (
     <div className={styles.layout}>
@@ -23,6 +27,7 @@ const Layout = ({ children, className, ...rest }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
+      {showList && <List />}
       {showMenu && <Menu />}
       <main className={styles.main}>{children}</main>
     </div>

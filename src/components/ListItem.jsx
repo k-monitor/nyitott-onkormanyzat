@@ -2,12 +2,14 @@ import Icon from "./ui/Icon";
 import horseIcon from "../../assets/horse-icon.svg";
 import pinIcon from "../../assets/pin-icon.svg";
 import styles from "../css/list-item.module.css";
+import { config } from "src/config";
 
 const ListItem = ({ item, onClick, ...props }) => {
-    const oligarchs = item.properties.mainOligarch.length > 0 ? item.properties.mainOligarch : item.properties.oligarchs;
+    // const oligarchs = item.properties.mainOligarch.length > 0 ? item.properties.mainOligarch : item.properties.oligarchs;
 
     return (
-        <div
+        <a
+            href={config.prefix+"/candidates/"+item.id+".html"}
             className={styles.listItem}
             {...props}
             tabIndex={0}
@@ -18,30 +20,8 @@ const ListItem = ({ item, onClick, ...props }) => {
                 }
             }}
         >
-            <h1>{item.properties.name}</h1>
-            <div className={styles.listItemRow}>
-                <div className={styles.listItemCol}>
-                    <Icon img={horseIcon} size="small" />
-                    <div className={styles.oligarchList}>
-                        {oligarchs.map((oligarch, key) => (
-                            <p key={key}>
-                                {oligarch.link ? (
-                                    <a href={oligarch.link} target="_blank" rel="noopener noreferrer">
-                                        {oligarch.name}
-                                    </a>
-                                ) : (
-                                    oligarch.name
-                                )}
-                            </p>
-                        ))}
-                    </div>
-                </div>
-                <div className={styles.listItemCol}>
-                    <Icon img={pinIcon} size="small" />
-                    <p>{item.properties.address}</p>
-                </div>
-            </div>
-        </div>
+            <h1>{item.name}</h1>
+        </a>
     );
 };
 
