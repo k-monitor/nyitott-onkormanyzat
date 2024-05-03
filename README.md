@@ -12,6 +12,8 @@ Emellett segített az elindulásban a [next-leaflet-starter](https://next-leafle
 
 A `kozig.geojson`-ban vannak a budapesti kerületek és a 30 000 fő feletti települések közigazgatási határai.
 
+Ezen felül hozzá lett adva: Esztergom, Szekszárd
+
 Forrás: openstreetmap.hu és [wikipédia](https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g_legnagyobb_telep%C3%BCl%C3%A9sei_lak%C3%B3n%C3%A9pess%C3%A9g_szerint) a népességi adatokért.
 
 ```bash
