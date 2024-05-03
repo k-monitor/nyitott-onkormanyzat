@@ -1,8 +1,8 @@
 import { fetchCsv } from '../../utils/fetchCsv';
 import Head from 'next/head';
-import { MapContext } from "../../context";
 import { useEffect, useState, useReducer, lazy, Suspense } from "react";
 import reducer, { initialState } from "../../reducer";
+import { MapContext, HotelContext } from "../../context";
 import Layout from '@components/Layout';
 import { generateImage } from 'src/img_gen';
 import { config } from 'src/config';
@@ -36,42 +36,45 @@ export async function getStaticProps({ params }) {
   })
 
   return {
-    props: { pageData, ogImage },
+    props: { pageData, ogImage, records },
   };
 }
 
-export default function Page({ pageData, ogImage, props }) {
+export default function Page({ pageData, ogImage, records, props }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const mapData = { ...state, dispatch };
+  const [hotels, setHotels] = useState(records);
 
   return (
     <>
-      <MapContext.Provider value={mapData}>
-      <Layout {...props} >
-      <Head>
-      <title>{pageData.name}</title>
-      <meta name="description" content={'todo'} />
-      <meta property="og:title" content={pageData.name} />
-      <meta property="og:description" content={'todo'} />
-      <meta property="og:image" content={config.prefix+'/'+ogImage} />
-      {/* <meta property="og:url" content="" /> */}
-      <meta property="og:type" content="website" />
-    </Head>
+      <HotelContext.Provider value={{ hotels }}>
+        <MapContext.Provider value={mapData}>
+        <Layout {...props} >
+        <Head>
+        <title>{pageData.name}</title>
+        <meta name="description" content={'todo'} />
+        <meta property="og:title" content={pageData.name} />
+        <meta property="og:description" content={'todo'} />
+        <meta property="og:image" content={config.prefix+'/'+ogImage} />
+        {/* <meta property="og:url" content="" /> */}
+        <meta property="og:type" content="website" />
+      </Head>
 
-    <div style={{position: 'relative'}}>
-      <h1 style={{marginBottom: "4px"}}>{pageData.name}</h1>
-      <p style={{marginTop: "0"}}>{pageData.district}</p>
-      <img src={pageData.img} width="400"></img>
-      <p style={{marginTop: "0"}}>{pageData.organisation} jelöltje</p>
-      <h2 style={{marginBottom: "0"}}>Program</h2>
-      <p>{pageData.program}</p>
-      <h2 style={{marginBottom: "0"}}>Problémák</h2>
-      <p>{pageData.problems}</p>
-      <h2 style={{marginBottom: "0"}}>Részletek</h2>
-      <p>{pageData.details}</p>
-    </div>
-    </Layout>
-    </MapContext.Provider>
+      <div style={{position: 'relative'}}>
+        <h1 style={{marginBottom: "4px"}}>{pageData.name}</h1>
+        <p style={{marginTop: "0"}}>{pageData.district}</p>
+        <img src={pageData.img} width="400"></img>
+        <p style={{marginTop: "0"}}>{pageData.organisation} jelöltje</p>
+        <h2 style={{marginBottom: "0"}}>Program</h2>
+        <p>{pageData.program}</p>
+        <h2 style={{marginBottom: "0"}}>Problémák</h2>
+        <p>{pageData.problems}</p>
+        <h2 style={{marginBottom: "0"}}>Részletek</h2>
+        <p>{pageData.details}</p>
+      </div>
+      </Layout>
+      </MapContext.Provider>
+    </HotelContext.Provider>
     <style jsx>{`
         div {
           display: flex;
