@@ -2,8 +2,9 @@
     height: 84px;
 }
 
-.main {
+.main > div {
     width: 100%;
     top: 84px;
     position: fixed;
+    height: calc(100vh - var(--header-height));
 }
