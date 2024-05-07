@@ -41,7 +41,7 @@ const Menu = () => {
 
                         <ul className={styles.menulist}>
                             <li><a href={config.prefix+'/'} onClick={closeMenu}>Térkép</a></li>
-                            <li><a href={config.prefix+'/'+"about.html"} onClick={closeMenu}>Mi ez?</a></li>
+                            <li><a href={config.prefix+'/'+"about"} onClick={closeMenu}>Mi ez?</a></li>
                             <li><a href="https://tamogatas.k-monitor.hu/" onClick={closeMenu}>Tetszik? Támogasd!</a></li>
                         </ul>
 
