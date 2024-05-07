@@ -9,7 +9,7 @@ const ListItem = ({ item, onClick, ...props }) => {
 
     return (
         <a
-            href={config.prefix+"/candidates/"+item.id+".html"}
+            href={config.prefix+"/candidates/"+item.id+""}
             className={styles.listItem}
             {...props}
             tabIndex={0}
