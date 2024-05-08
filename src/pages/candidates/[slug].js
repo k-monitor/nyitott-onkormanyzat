@@ -52,11 +52,11 @@ export default function Page({ pageData, ogImage, records, props }) {
         <Layout {...props} >
         <Head>
         <title>{pageData.name}</title>
-        <meta name="description" content={'todo'} />
+        <meta name="description" content={pageData.program} />
         <meta property="og:title" content={pageData.name} />
-        <meta property="og:description" content={'todo'} />
+        <meta property="og:description" content={pageData.program} />
         <meta property="og:image" content={config.prefix+'/'+ogImage} />
-        {/* <meta property="og:url" content="" /> */}
+        <meta property="og:url" content={config.baseUrl+'candidates/'+pageData.name} />
         <meta property="og:type" content="website" />
       </Head>
 
