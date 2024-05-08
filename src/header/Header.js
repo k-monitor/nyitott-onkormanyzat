@@ -38,7 +38,7 @@ const Header = (props) => {
         <header className={styles.header}>
             <div className={styles.logoContainer}>
                 <a
-                    href={config.prefix}
+                    href={config.baseUrl}
                     onClick={() => {
                         dispatch({ type: "TogglePopup", showPopup: false });
                     }}
