@@ -1,0 +1,55 @@
+XII. kerület
+II. kerület 
+XXII. kerület
+XI. kerület 
+XXI. kerület
+XXIII. kerület
+XX. kerület 
+XIX. kerület
+XVIII. kerület
+I. kerület
+V. kerület
+VI. kerület
+XIII. kerület
+IX. kerület
+VIII. kerület
+VII. kerület
+XIV. kerület
+III. kerület
+IV. kerület 
+XV. kerület 
+X. kerület
+XVI. kerület
+XVII. kerület
+Debrecen
+Szeged
+Miskolc
+Pécs
+Győr
+Nyíregyháza
+Kecskemét
+Szekszárd
+Székesfehérvár
+Szombathely
+Érd
+Szolnok
+Tatabánya
+Sopron
+Kaposvár
+Veszprém
+Békéscsaba
+Zalaegerszeg
+Eger
+Dunakeszi
+Nagykanizsa
+Dunaújváros
+Hódmezővásárhely
+Szigetszentmiklós
+Cegléd
+Vác
+Mosonmagyaróvár
+Baja
+Gödöllő
+Salgótarján
+Esztergom
+Ózd

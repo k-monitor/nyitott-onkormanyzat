@@ -40,7 +40,7 @@ export default function Home({ records, data, props }) {
       <HotelContext.Provider value={{ hotels }}>
         <MapContext.Provider value={mapData}>
           <Layout {...props} >
-            <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={12} jsonData={data} >
+            <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={12} jsonData={data}  >
               {({ TileLayer, Marker, Popup }) => (
                 <>
                   <TileLayer
