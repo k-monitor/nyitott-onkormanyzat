@@ -66,7 +66,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         <meta property="og:title" content={pageData.name} />
         <meta property="og:description" content={pageData.program} />
         <meta property="og:image" content={config.prefix+'/'+ogImage} />
-        <meta property="og:url" content={config.baseUrl+'candidates/'+pageData.name} />
+        <meta property="og:url" content={config.baseUrl+'candidates/'+pageData.id} />
         <meta property="og:type" content="website" />
       </Head>
 
