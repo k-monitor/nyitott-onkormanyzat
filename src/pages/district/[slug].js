@@ -15,10 +15,13 @@ import slugify from 'slugify'
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
 export async function getStaticPaths() {
-  const records = await fetchCsv(url);
+  // const records = await fetchCsv(url);
+  const dataPath = path.join(process.cwd(), 'assets', 'kozig.geojson'); // Path to your JSON file
+  const jsonData = fs.readFileSync(dataPath, 'utf8'); // Read the file
+  const data = JSON.parse(jsonData); // Parse the JSON content
 
-  const paths = records.map(item => ({
-    params: { slug: slugify(item.district) },
+  const paths = data.features.map(item => ({
+    params: { slug: slugify(item.properties.NAME) },
   }));
 
   return { paths, fallback: false };
@@ -26,8 +29,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const records = await fetchCsv(url);
-
   const pageData = records.filter(item => slugify(item.district) === params.slug);
+
   const dataPath = path.join(process.cwd(), 'assets', 'kozig.geojson'); // Path to your JSON file
   const jsonData = fs.readFileSync(dataPath, 'utf8'); // Read the file
   const data = JSON.parse(jsonData); // Parse the JSON content
@@ -42,7 +45,7 @@ export default function Page({ pageData, records, props, data, districtName }) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const mapData = { ...state, dispatch };
   const [hotels, setHotels] = useState(records);
-  const DEFAULT_CENTER = [pageData[0].lat, pageData[0].long]
+  const DEFAULT_CENTER = (pageData.length > 0) ? [pageData[0].lat, pageData[0].long] : []
 
   return (
     <>
@@ -50,7 +53,7 @@ export default function Page({ pageData, records, props, data, districtName }) {
         <MapContext.Provider value={mapData}>
         <Layout candidate={true} {...props} >
         <Head>
-        <title>{pageData.name}</title>
+        <title>{districtName}</title>
         <meta name="description" content={districtName} />
         <meta property="og:title" content={districtName} />
         <meta property="og:description" content={districtName} />
@@ -64,7 +67,7 @@ export default function Page({ pageData, records, props, data, districtName }) {
           <p style={{marginTop: "0"}}>{pageData.length} db jelölt</p>
         </div>
         <div style={{left: '50%', top: '120px', width: '30%', left: '50%', position: 'fixed'}}>
-          <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
+        {(pageData.length > 0) && <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
             {({ TileLayer, Marker, Popup }) => (
               <>
                 <TileLayer
@@ -76,7 +79,7 @@ export default function Page({ pageData, records, props, data, districtName }) {
                   ))}
               </>
             )}
-          </Map>
+          </Map>}
         </div>
       </div>
       </Layout>
