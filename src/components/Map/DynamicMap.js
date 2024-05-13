@@ -7,7 +7,9 @@ import { useState } from "react";
 
 import styles from './Map.module.scss';
 import { config } from 'src/config';
-
+import { useRouter } from 'next/navigation'
+import slugify from 'slugify';
+ 
 const { MapContainer } = ReactLeaflet;
 
 function LocationMarker() {
@@ -53,12 +55,19 @@ const Map = ({ children, className, width, height, jsonData, ...rest }) => {
   }, []);
 
   const hasCandidate = [];
-    
+  const router = useRouter()
+
+  function handleGeoJSONClick(event){
+    console.log(event.layer.feature.properties.NAME)
+     
+    router.push('/district/'+slugify(event.layer.feature.properties.NAME), { scroll: false })
+
+  }
   return (
     <MapContainer className={mapClassName} onClick={handleClick} {...rest}>
       {children(ReactLeaflet, Leaflet)}
       <LocationMarker />
-      <ReactLeaflet.GeoJSON data={jsonData} style={
+      <ReactLeaflet.GeoJSON eventHandlers={{click: handleGeoJSONClick}} data={jsonData} style={
         function(feature) {
           return {
             fillColor: hasCandidate.indexOf(feature.properties.NAME)==-1 ? "#aaaaaa" : "#44aa44",
