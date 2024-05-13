@@ -11,6 +11,7 @@ import fs from 'fs';
 import path from 'path';
 import popStyles from "../../css/Popup.module.css";
 import styles from "../../css/map.module.css";
+import slugify from 'slugify'
 
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
@@ -73,7 +74,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
       <div style={{display: 'flex', position: 'relative', height: '', justifyContent: 'space-between'}}>
         <div style={{position: 'relative', width: '50%'}}>
           <h1 style={{marginBottom: "4px"}}>{pageData.name}</h1>
-          <p style={{marginTop: "0"}}>{pageData.district}</p>
+          <p style={{marginTop: "0"}}><a href={'/district/'+slugify(pageData.district)}>{pageData.district}</a></p>
           <img src={pageData.img} width="400"></img>
           <p style={{marginTop: "0"}}>{pageData.organisation} jelöltje</p>
           <h2 style={{marginBottom: "0"}}>Program</h2>
