@@ -65,6 +65,9 @@ export default function Page({ pageData, records, props, data, districtName }) {
         <div style={{position: 'relative', width: '50%'}}>
           <h1 style={{marginBottom: "4px"}}>{districtName}</h1>
           <p style={{marginTop: "0"}}>{pageData.length} db jelölt</p>
+          {pageData.map((record) => (
+            <li><a href={'/candidates/'+record.id}>{record.name}</a></li>
+          ))}
         </div>
         <div style={{left: '50%', top: '120px', width: '30%', left: '50%', position: 'fixed'}}>
         {(pageData.length > 0) && <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
