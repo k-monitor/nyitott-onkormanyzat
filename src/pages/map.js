@@ -13,6 +13,7 @@ import fs from 'fs';
 import path from 'path';
 // import MarkerClusterGroup from 'react-leaflet-cluster'
 import { useState } from "react";
+import slugify from 'slugify'
 
 
 const DEFAULT_CENTER = [47.497913, 19.040236]
@@ -52,7 +53,7 @@ export default function Home({ records, data, props }) {
                     <Marker key={record.id} position={[record.lat,record.long]}>
                       <Popup className={popStyles.popup} >
                         <h1>{record.name}</h1>
-                        <p> {record.district}</p>
+                        <p><a href={'/district/'+slugify(record.district)}>{record.district}</a></p>
                         <img src={record.img}></img>
                         <p>{record.program}</p>
                         <Button isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
