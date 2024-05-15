@@ -40,8 +40,10 @@ const Menu = () => {
                         </div>
 
                         <ul className={styles.menulist}>
-                            <li><a href={config.prefix+'/'} onClick={closeMenu}>Térkép</a></li>
+                            <li><a href={config.prefix+'/list/'} onClick={closeMenu}>Jelöltek vállalásai</a></li>
+                            <li><a href={config.prefix+'/map/'} onClick={closeMenu}>Térkép</a></li>
                             <li><a href={config.prefix+'/'+"about"} onClick={closeMenu}>Mi ez?</a></li>
+                            <li><a href={config.prefix+'/'} onClick={closeMenu}>Vállalást teszek</a></li>
                             <li><a href="https://tamogatas.k-monitor.hu/" onClick={closeMenu}>Tetszik? Támogasd!</a></li>
                         </ul>
 
