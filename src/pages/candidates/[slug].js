@@ -64,9 +64,9 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         <Layout candidate={true} {...props} >
         <Head>
         <title>{pageData.name}</title>
-        <meta name="description" content={pageData.program} />
+        <meta name="description" content={pageData.title} />
         <meta property="og:title" content={pageData.name} />
-        <meta property="og:description" content={pageData.program} />
+        <meta property="og:description" content={pageData.title} />
         <meta property="og:image" content={config.baseUrl+ogImage} />
         <meta property="og:url" content={config.baseUrl+'candidates/'+pageData.id} />
         <meta property="og:type" content="website" />
@@ -80,7 +80,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
           <img src={pageData.img} width="400"></img>
           <p style={{marginTop: "0"}}>{pageData.organisation} jelöltje</p>
           <h2 style={{marginBottom: "0"}}>Program</h2>
-          <p>{pageData.program}</p>
+          <p>{pageData.title}</p>
           <h2 style={{marginBottom: "0"}}>Problémák</h2>
           <p>{pageData.problems}</p>
           <h2 style={{marginBottom: "0"}}>Részletek</h2>

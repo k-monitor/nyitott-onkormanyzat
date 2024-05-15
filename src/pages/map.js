@@ -55,7 +55,7 @@ export default function Home({ records, data, props }) {
                         <h1>{record.name}</h1>
                         <p><a href={'/district/'+slugify(record.district)}>{record.district}</a></p>
                         <img src={record.img}></img>
-                        <p>{record.program}</p>
+                        <p>{record.title}</p>
                         <Button isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
                       </Popup>
                     </Marker>
