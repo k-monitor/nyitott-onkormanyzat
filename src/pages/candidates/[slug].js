@@ -35,10 +35,13 @@ export async function getStaticProps({ params }) {
     outputName: pageData.id,
     options: {
       width: 1200,
-      height: 630,
+      height: 600,
       img: pageData.img,
       name: pageData.name,
-      description: pageData.program,
+      title: pageData.title,
+      problems: pageData.problems,
+      details: pageData.details,
+      district: pageData.district,
     }
   })
 
