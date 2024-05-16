@@ -5,7 +5,7 @@ import styles from "./Header.module.css";
 import Icon from "../components/ui/Icon";
 import ListIcon from "../../assets/menu-icon.svg";
 
-import Logo from "../../assets/nh-logo.svg";
+import Logo from "../../assets/logo-szoveg.svg";
 import logoEn from "../../assets/nh-logo-en.svg";
 import { MapContext } from "../context";
 
@@ -44,7 +44,7 @@ const Header = (props) => {
                     }}
                     className={styles.logo}
                 >
-                    <Logo style={{scale:"0.5"}} />
+                    <Logo style={{scale:"0.9"}} />
                 </a>
             </div>
             <div className={styles.searchContainer}>
