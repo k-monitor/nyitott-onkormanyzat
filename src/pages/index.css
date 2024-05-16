@@ -34,14 +34,22 @@ input[type="search"]::-webkit-search-results-decoration {
     display: none;
 }
 
+button > svg > rect {
+    fill: black
+}
+
 :root {
-    --nh-accent-color: #f05f22;
+    --nh-accent-color: #777;
     --nh-blue: #3366ff;
     --copy-line-height: 1.6;
     --header-height: 84px;
     --page-gutter: 20px;
     --h1-size: 1.5rem;
     --h1-mb: 0.6em;
+}
+
+a:hover {
+    color: var(--nh-accent-color);
 }
 
 @media screen and (min-width: 768px) {

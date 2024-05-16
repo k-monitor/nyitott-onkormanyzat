@@ -44,7 +44,7 @@ const Header = (props) => {
                     }}
                     className={styles.logo}
                 >
-                    <Logo/>
+                    <Logo style={{scale:"0.5"}} />
                 </a>
             </div>
             <div className={styles.searchContainer}>

@@ -7,6 +7,7 @@ import reducer, { initialState } from "../reducer";
 // import MarkerClusterGroup from 'react-leaflet-cluster'
 import { useState } from "react";
 import MapIcon from "../../assets/my-location.svg";
+import { FaMapMarked } from "react-icons/fa";
 
 
 export async function getStaticProps() {
@@ -36,8 +37,8 @@ export default function Home({ records, props }) {
                 ))}
               </ul>
             </div>
-            <div style={{top: '100px', right: '10px', width: '48px', height: '48px'}}>
-              <a href='/map' style={{display: 'block'}}><MapIcon style={{pointerEvents: 'none'}}></MapIcon></a>
+            <div style={{top: '100px', right: '16px', width: '48px', height: '48px'}}>
+              <a href='/map' style={{display: 'block'}}><FaMapMarked size={48} style={{pointerEvents: 'none'}}></FaMapMarked></a>
             </div>
 
           </Layout>

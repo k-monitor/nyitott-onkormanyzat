@@ -49,6 +49,8 @@
 
 .footer {
     font-size: 14px;
+    bottom: 10px;
+    position: fixed;
 }
 
 @media (max-width: 480px) {

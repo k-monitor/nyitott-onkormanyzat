@@ -35,9 +35,7 @@ const Menu = () => {
                             </button>
                         </div>
 
-                        <div className={styles.logoWrapper}>
-                            <Logo />
-                        </div>
+                        <Logo style={{scale:"2", margin: "30px", marginBottom: "50px"}} />
 
                         <ul className={styles.menulist}>
                             <li><a href={config.prefix+'/list/'} onClick={closeMenu}>Jelöltek vállalásai</a></li>
@@ -46,10 +44,6 @@ const Menu = () => {
                             <li><a href={config.prefix+'/'} onClick={closeMenu}>Vállalást teszek!</a></li>
                             <li><a href="https://tamogatas.k-monitor.hu/" onClick={closeMenu}>Tetszik? Támogasd!</a></li>
                         </ul>
-
-                        <div className={styles.imageWrapper}>
-                            <Image />
-                        </div>
 
                         <address className={styles.footer}>
                             <p>
