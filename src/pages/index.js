@@ -51,7 +51,7 @@ export default function Home({ records, data, props }) {
         }
 
         main {
-          background-color: #126ca5;
+          background-color: var(--dark-blue);
           color: #eee;
           text-align: center;
         }

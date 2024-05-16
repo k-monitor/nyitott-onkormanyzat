@@ -39,6 +39,16 @@ button > svg > rect {
 }
 
 :root {
+    --mid-blue: #4c89ba;
+    --dark-blue: #296ba7;
+    --light-blue: #86b0d1;
+    --cat-blue: #4498c4;
+    --cat-blue-proj: #6bd6f2;
+    --cat-orange: #e58500;
+    --cat-orange-proj: #f9c514;
+    --cat-green: #61af1d;
+    --cat-green-proj: #99e728;
+
     --nh-accent-color: #777;
     --nh-blue: #3366ff;
     --copy-line-height: 1.6;
