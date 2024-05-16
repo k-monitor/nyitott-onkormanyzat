@@ -29,7 +29,7 @@ export default function Home({ records, data, props }) {
         <h1>Nyitott önkormányzat</h1>
         <p>Ide kéne írni valamit.</p>
         <div style={{display: 'flex', flexDirection: 'row'}}>
-          <a style={{marginRight: '50px'}} href='/'>jelölt vagyok</a>
+          <a style={{marginRight: '50px'}} href='https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform'>jelölt vagyok</a>
           <a href='/list'>látogató</a>
         </div>
       </main>
@@ -55,6 +55,16 @@ export default function Home({ records, data, props }) {
         p {
           font-size: 1.2em;
           color: #555;
+        }
+
+        a {
+          background: #111;
+          padding: 8px;
+          color: #eee;
+          border-radius: 5px;
+        }
+        a:hover {
+          background: #444;
         }
       `}</style>
     </div>

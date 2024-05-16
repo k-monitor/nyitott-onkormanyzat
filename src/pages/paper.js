@@ -20,8 +20,7 @@ export default function Home({ records, props }) {
       <HotelContext.Provider value={{ hotels }}>
         <MapContext.Provider value={mapData}>
           <Layout {...props} >
-          <iframe src="https://drive.google.com/file/d/1KmKAVY4kAuMjTbvBGaTH-pY1Az9_9_PE/preview" style={{ top: "85px", position: "absolute", height: "calc(100% - 85px)", width: "100%" }} width="640" height="480" allow="autoplay"></iframe>
-
+            <iframe src="https://drive.google.com/file/d/1KmKAVY4kAuMjTbvBGaTH-pY1Az9_9_PE/preview" style={{ top: "85px", position: "absolute", height: "calc(100% - 85px)", width: "100%" }} width="640" height="480" allow="autoplay"></iframe>
           </Layout>
         </MapContext.Provider>
       </HotelContext.Provider>
