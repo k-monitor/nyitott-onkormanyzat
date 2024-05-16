@@ -48,6 +48,17 @@ button > svg > rect {
     --h1-mb: 0.6em;
 }
 
+.leaflet-container p {
+    margin: 0;
+}
+
+.leaflet-container p a {
+    display: block;
+    font-size: 15px;
+    text-decoration: none;
+    color: #000;
+}
+
 a:hover {
     color: var(--nh-accent-color);
 }

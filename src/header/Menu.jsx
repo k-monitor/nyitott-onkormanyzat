@@ -41,7 +41,8 @@ const Menu = () => {
                             <li><a href={config.prefix+'/list/'} onClick={closeMenu}>Jelöltek vállalásai</a></li>
                             <li><a href={config.prefix+'/map/'} onClick={closeMenu}>Térkép</a></li>
                             <li><a href={config.prefix+'/'+"about"} onClick={closeMenu}>Mi ez?</a></li>
-                            <li><a href={config.prefix+'/'} onClick={closeMenu}>Vállalást teszek!</a></li>
+                            <li><a href={config.prefix+'/'+"paper"} onClick={closeMenu}>Tanulmány</a></li>
+                            <li><a href={'https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform'} onClick={closeMenu}>Vállalást teszek!</a></li>
                             <li><a href="https://tamogatas.k-monitor.hu/" onClick={closeMenu}>Tetszik? Támogasd!</a></li>
                         </ul>
 
