@@ -76,6 +76,7 @@ export default function Home({ records, data, props }) {
 
         a.disabled {
           color: #888;
+          cursor: not-allowed;
         }
       `}</style>
     </>
