@@ -75,12 +75,12 @@
     margin: 0;
 }
 
-.popupContent a {
+.leaflet-container a {
     display: block;
     font-size: 15px;
     font-weight: 700;
     text-decoration: none;
-    color: #000;
+    color: #000 !important;
 }
 
 .popupContent a {
