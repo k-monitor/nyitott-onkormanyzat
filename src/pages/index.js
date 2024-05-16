@@ -32,8 +32,8 @@ export default function Home({ records, data, props }) {
         <p>Ide kéne írni valamit.</p>
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <a style={{marginRight: '50px'}} href='https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform'>jelölt vagyok</a>
-          {/* <a href='/list'>látogató</a> */}
-          <a className='disabled'>látogató</a>
+          <a href='/list'>látogató</a>
+          {/* <a className='disabled'>látogató</a> */}
         </div>
       </main>
 
