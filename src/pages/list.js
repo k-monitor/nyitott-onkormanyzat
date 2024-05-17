@@ -9,7 +9,8 @@ import { useState } from "react";
 import MapIcon from "../../assets/my-location.svg";
 import { FaMapMarked } from "react-icons/fa";
 import slugify from 'slugify';
-import { Source_Code_Pro } from 'next/font/google'
+import { Source_Code_Pro, Montserrat } from 'next/font/google'
+import catToColor from 'src/utils/categoryColor';
 
 const scp = Source_Code_Pro({ subsets: ['latin'] })
 
@@ -27,16 +28,6 @@ export default function Home({ records, props }) {
   const [hotels, setHotels] = useState(records);
   const mapData = { ...state, dispatch };
 
-  function catToColor(category) {
-    switch (category) {
-      case "atlathatosag":
-        return "var(--cat-blue)"
-      case "szamonkerhetoseg":
-        return "var(--cat-green)"
-      case "reszveteliseg":
-        return "var(--cat-orange)"      
-    }
-  }
 
   return (
     <>
@@ -52,14 +43,17 @@ export default function Home({ records, props }) {
                     <div style={{
                       border: "solid var(--cat-blue) 3px",
                       borderColor: catToColor(record.category),
+                      backgroundColor: catToColor(record.category),
                       height: "134px", width: "40" }}>
                       <img src={record.img} style={{height: "128px", width: "96px"}}></img>
                     </div>
                     <div style={{
                       border: "solid var(--cat-blue) 3px",
                       borderColor: catToColor(record.category),
+                      backgroundColor: catToColor(record.category),
                       padding: "10px",
                       width: "700px",
+                      color: "#eee",
                       marginLeft: "10px"}}>
                       <p style={{margin: 0}}><a style={{fontSize: "25px"}} href={'/candidates/'+record.id}>{record.name}</a></p>
                       <p style={{margin: 0}}><a style={{fontSize: "15px"}} href={'/district/'+slugify(record.district)}>{record.district}</a></p>
