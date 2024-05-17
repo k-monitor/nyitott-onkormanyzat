@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg1"
+   width="58.791992"
+   height="113.66133"
+   viewBox="0 0 58.791992 113.66133"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <color-profile
+       name="Adobe-RGB-1998"
+       xlink:href="data:application/vnd.iccprofile;base64,AAACVEFEQkUCEAAAbW50clJHQiBYWVogB88ABgADAAAAAAAAYWNzcEFQUEwAAAAAbm9uZQAAAAAAAAAAAAAAAAAAAAAAAPbWAAEAAAAA0y1BREJFAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKY3BydAAAAPwAAAAyZGVzYwAAATAAAACQd3RwdAAAAcAAAAAUYmtwdAAAAdQAAAAUclRSQwAAAegAAAAOZ1RSQwAAAfgAAAAOYlRSQwAAAggAAAAOclhZWgAAAhgAAAAUZ1hZWgAAAiwAAAAUYlhZWgAAAkAAAAAUdGV4dAAAAABDb3B5cmlnaHQgMTk5OSBBZG9iZSBTeXN0ZW1zIEluY29ycG9yYXRlZAAAAGRlc2MAAAAAAAAAEUFkb2JlIFJHQiAoMTk5OCkAAAAAAAAAABEAQQBkAG8AYgBlACAAUgBHAEIAIAAoADEAOQA5ADgAKQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFhZWiAAAAAAAADzUQABAAAAARbMWFlaIAAAAAAAAAAAAAAAAAAAAABjdXJ2AAAAAAAAAAECMwAAY3VydgAAAAAAAAABAjMAAGN1cnYAAAAAAAAAAQIzAABYWVogAAAAAAAAnBgAAE+lAAAE/FhZWiAAAAAAAAA0jQAAoCwAAA+VWFlaIAAAAAAAACYxAAAQLwAAvpw="
+       id="color-profile1" />
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath181">
+      <path
+         d="M 0,0 H 595.276 V 841.89 H 0 Z"
+         transform="translate(-511.86471,-797.13282)"
+         id="path181" />
+    </clipPath>
+  </defs>
+  <g
+     id="g74"
+     transform="translate(-1491.9176,-43.358933)">
+    <path
+       id="path179"
+       d="M 0,0 H -44.094 V 64.604 H 0 v -9.745 h -3.076 v 6.668 H -41.018 V 3.076 H -3.076 V 9.742 H 0 Z"
+       style="fill:#000000 icc-color(Adobe-RGB-1998, 0, 0, 0);fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(1.3333333,0,0,-1.3333333,1550.7092,142.94453)" />
+    <path
+       id="path180"
+       d="m 0,0 v -60.791 l 24.269,-12.217 v 85.246 z m 21.532,-30.363 c 0.007,-0.848 -0.676,-1.543 -1.526,-1.551 l -2.279,-0.018 c -0.85,-0.005 -1.544,0.674 -1.552,1.526 -0.007,0.849 0.677,1.545 1.526,1.551 l 2.279,0.017 c 0.85,0.008 1.545,-0.676 1.552,-1.525"
+       style="fill:#000000 icc-color(Adobe-RGB-1998, 0, 0, 0);fill-opacity:1;fill-rule:nonzero;stroke:none"
+       transform="matrix(1.3333333,0,0,-1.3333333,1496.1876,59.676267)"
+       clip-path="url(#clipPath181)" />
+  </g>
+</svg>

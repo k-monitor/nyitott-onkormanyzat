@@ -82,7 +82,7 @@ button > svg > rect {
 }
 
 a:hover {
-    color: var(--nh-accent-color);
+    color: var(--dark-blue);
 }
 
 @media screen and (min-width: 768px) {

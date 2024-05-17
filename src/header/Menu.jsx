@@ -6,7 +6,7 @@ import CloseIcon from "../../assets/close-icon.svg";
 import styles from "./Menu.module.css";
 import Icon from "../components/ui/Icon";
 import Image from "../../assets/nh-main.svg";
-import Logo from "../../assets/logo-szoveg.svg";
+import Logo from "../../assets/nyitott-onkormanyzat-logo-szoveg.svg";
 import logoEn from "../../assets/nh-logo-en.svg";
 import { CSSTransition } from "react-transition-group";
 import { useEffect, useContext } from "react";
@@ -35,7 +35,7 @@ const Menu = () => {
                             </button>
                         </div>
 
-                        <Logo style={{scale:"2", margin: "30px", marginBottom: "50px", marginLeft: "70px"}} />
+                        <Logo style={{scale:"2", margin: "30px", marginBottom: "50px", marginLeft: "70px", fill: "var(--dark-blue)"}} />
 
                         <ul className={styles.menulist}>
                             <li><a href={config.prefix+'/list/'} onClick={closeMenu}>Jelöltek vállalásai</a></li>

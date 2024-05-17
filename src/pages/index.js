@@ -12,7 +12,7 @@ import { config } from "src/config";
 import path from 'path';
 // import MarkerClusterGroup from 'react-leaflet-cluster'
 import { useState } from "react";
-import Logo from "../../assets/nh-logo.svg";
+import Logo from "../../assets/nyitott-onkormanyzat-logo.svg";
 import { Montserrat } from 'next/font/google'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
