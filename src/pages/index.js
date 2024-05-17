@@ -29,7 +29,7 @@ export default function Home({ records, data, props }) {
 
       </Head>
       <main className={montserrat.className} >
-        <div style={{display: 'flex', flexDirection: "column", width: "100%", backgroundColor: "var(--dark-blue)"}}>
+        <div style={{display: 'flex', flexDirection: "column", width: "100%", height: "100%", backgroundColor: "var(--dark-blue)"}}>
           <Logo style={{scale:"2", margin: "80px", marginTop: "100px", marginLeft: "auto", marginRight: "auto", fill: '#eee', backgroundColor: "var(--dark-blue)", minHeight: "150px"}} />
           <h1>Építsünk Nyitott Önkormányzatot!</h1>
 
