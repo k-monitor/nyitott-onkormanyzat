@@ -69,6 +69,18 @@ button > svg > rect {
     color: #000;
 }
 
+.leaflet-popup-content {
+    margin: 0 !important;
+}
+
+.leaflet-popup-tip {
+    background-color: #000 !important;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0;
+}
+
 a:hover {
     color: var(--nh-accent-color);
 }
@@ -110,6 +122,12 @@ h1 {
     background: #fff;
     min-width: 300px;
     align-items: center;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.leaflet-popup * {
+    border-radius: 0 !important;
 }
 
 .leaflet-popup a {

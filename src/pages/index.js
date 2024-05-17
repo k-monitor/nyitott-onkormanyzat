@@ -13,6 +13,9 @@ import path from 'path';
 // import MarkerClusterGroup from 'react-leaflet-cluster'
 import { useState } from "react";
 import Logo from "../../assets/nh-logo.svg";
+import { Montserrat } from 'next/font/google'
+
+const montserrat = Montserrat({ subsets: ['latin'] })
 
 
 export default function Home({ records, data, props }) {
@@ -25,13 +28,13 @@ export default function Home({ records, data, props }) {
       <Head>
 
       </Head>
-      <main>
-        <Logo style={{scale:"2", margin: "80px", fill: '#eee'}} />
+      <main className={montserrat.className} >
+        <div>
+        <Logo style={{scale:"2", margin: "80px", marginTop: "100px", marginLeft: "auto", marginRight: "auto", fill: '#eee', backgroundColor: "var(--dark-blue)", minHeight: "150px"}} />
         <h1>Építsünk Nyitott Önkormányzatot!</h1>
 
-        <div style={{maxWidth: "800px", marginLeft: "auto", marginRight: "auto"}}>
+        <div style={{maxWidth: "800px", marginLeft: "auto", marginRight: "auto", width: "100%", backgroundColor: "var(--dark-blue)"}}>
           <p>Itt hamarosan a K-Monitor Nyitott Önkormányzatok projekt keretében tett polgármesterjelölti vállalások lesznek böngészhetők egy interaktív térképen!</p>
-
           <p>Addig is olvasd el <a href="https://drive.google.com/file/d/1bY_8IDRlutW7103vRZYfvnsUeoj8Aosy/view">kiadványunkat</a>, ahol hazai és nemzetközi példákkal illusztráltuk, mit értünk a gyakorlatban a nyitott önkormányzatiság alatt. </p>
         </div>
         <div style={{display: 'flex', flexDirection: 'row'}}>
@@ -39,12 +42,12 @@ export default function Home({ records, data, props }) {
           {/* <a className='button' href='/list'>Választó vagyok, megnézem a vállalásokat!</a> */}
           <a className='disabled button'>Választó vagyok, megnézem a vállalásokat!</a>
         </div>
-        <footer style={{bottom: "20px", position: "absolute", width: "100%"}}>
-        <p>Értesülj a K-Monitor havi beszámolójából további hasonló projektekről!</p>
-        <p>Iratkozz fel!</p>
-        <p>k-monitor.hu</p>
+        <footer style={{width: "100%", marginTop: "auto", backgroundColor: "var(--dark-blue)"}}>
+          {/* <p>Értesülj a K-Monitor havi beszámolójából további hasonló projektekről!</p> */}
+          {/* <p>Iratkozz fel!</p> */}
+          <p><a href="https://k-monitor.hu">k-monitor.hu</a></p>
         </footer>
-
+        </div>
       </main>
 
       <style jsx>{`
@@ -57,17 +60,29 @@ export default function Home({ records, data, props }) {
         }
 
         footer * {
-          margin: 0;
+          margin: 20px;
+
         }
+
 
         html, body, #__next, main {
           height: 100vh;
+        }
+        
+        html {
+          background-color: #111 !important;
+        }
+
+        main * {
+          background-color: var(--dark-blue);
         }
 
         main {
           background-color: var(--dark-blue);
           color: #eee;
           text-align: center;
+          display: flex;
+          flex-direction: column;
         }
 
         h1 {

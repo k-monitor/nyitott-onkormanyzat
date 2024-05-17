@@ -14,6 +14,7 @@ import path from 'path';
 // import MarkerClusterGroup from 'react-leaflet-cluster'
 import { useState } from "react";
 import slugify from 'slugify'
+import catToColor from 'src/utils/categoryColor';
 
 
 const DEFAULT_CENTER = [47.497913, 19.040236]
@@ -51,12 +52,14 @@ export default function Home({ records, data, props }) {
                   {/* <MarkerClusterGroup> */}
                   {records.map((record) => (
                     <Marker key={record.id} position={[record.lat,record.long]}>
-                      <Popup className={popStyles.popup} >
+                      <Popup>
+                        <div style={{border: "solid #111 3px", padding: "20px", margin: "0 !important", }}>
                         <h1>{record.name}</h1>
                         <p><a href={'/district/'+slugify(record.district)}>{record.district}</a></p>
                         <img src={record.img}></img>
                         <p>{record.title}</p>
                         <Button isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
+                        </div>
                       </Popup>
                     </Marker>
                   ))}
