@@ -12,6 +12,7 @@ import { config } from "src/config";
 import path from 'path';
 // import MarkerClusterGroup from 'react-leaflet-cluster'
 import { useState } from "react";
+import Logo from "../../assets/nh-logo.svg";
 
 
 export default function Home({ records, data, props }) {
@@ -24,13 +25,15 @@ export default function Home({ records, data, props }) {
       <Head>
 
       </Head>
-      <div>
       <main>
+        <Logo style={{scale:"2", margin: "80px", fill: '#eee'}} />
         <h1>Nyitott önkormányzat</h1>
+
         <p>Ide kéne írni valamit.</p>
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <a style={{marginRight: '50px'}} href='https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform'>jelölt vagyok</a>
-          <a href='/list'>látogató</a>
+          {/* <a href='/list'>látogató</a> */}
+          <a className='disabled'>látogató</a>
         </div>
       </main>
 
@@ -43,31 +46,39 @@ export default function Home({ records, data, props }) {
           padding: 0 20px;
         }
 
+        html, body, #__next, main {
+          height: 100vh;
+        }
+
         main {
+          background-color: var(--dark-blue);
+          color: #eee;
           text-align: center;
         }
 
         h1 {
           font-size: 2em;
-          color: #333;
         }
 
         p {
           font-size: 1.2em;
-          color: #555;
         }
 
         a {
-          background: #111;
+          background: #eee;
           padding: 8px;
-          color: #eee;
+          color: #111;
           border-radius: 5px;
         }
         a:hover {
-          background: #444;
+          color: #888;
+        }
+
+        a.disabled {
+          color: #888;
+          cursor: not-allowed;
         }
       `}</style>
-    </div>
     </>
   )
 }
