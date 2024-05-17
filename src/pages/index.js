@@ -36,8 +36,8 @@ export default function Home({ records, data, props }) {
         </div>
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <a className='button' style={{marginRight: '50px'}} href='https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform'>Polgármesterjelölt vagyok, vállalást teszek!</a>
-          <a className='button' href='/list'>Választó vagyok, megnézem a vállalásokat!</a>
-          {/* <a className='disabled button'>látogató</a> */}
+          {/* <a className='button' href='/list'>Választó vagyok, megnézem a vállalásokat!</a> */}
+          <a className='disabled button'>Választó vagyok, megnézem a vállalásokat!</a>
         </div>
         <footer style={{bottom: "20px", position: "absolute", width: "100%"}}>
         <p>Értesülj a K-Monitor havi beszámolójából további hasonló projektekről!</p>
