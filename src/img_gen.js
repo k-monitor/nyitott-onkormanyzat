@@ -3,8 +3,8 @@ import { Resvg } from '@resvg/resvg-js'
 import { writeFile, readFile, stat } from 'fs/promises'
 import { join } from 'path'
 
-const interPathRegular = join(process.cwd(), 'assets', 'Roboto-Regular.ttf')
-const interPathBold = join(process.cwd(), 'assets', 'Roboto-Bold.ttf')
+const interPathRegular = join(process.cwd(), 'assets', 'Montserrat-Regular.ttf')
+const interPathBold = join(process.cwd(), 'assets', 'Montserrat-Bold.ttf')
 
 export async function generateImage({
   outputName,
@@ -22,7 +22,7 @@ export async function generateImage({
         <h1 style={{fontSize: '40px', margin: '0'}}>{'NYITOTT ÖNKORMÁNYZATOT ÉPÍTEK!'}</h1>
         <h1 style={{fontSize: '30px', margin: '0'}}>{options.district}</h1>
         <h1 style={{fontSize: '30px', margin: '0'}}>{options.name} polgármesterjelölt</h1>
-        <p style={{fontSize: '30px', marginBottom: '0', fontFamily: 'Roboto-Bold'}}><b>{options.title}</b></p>
+        <p style={{fontSize: '30px', marginBottom: '0', fontFamily: 'Montserrat-Bold', fontWeight: "400"}}><b>{options.title}</b></p>
         <p style={{fontSize: '21px', marginTop: '0'}}>{'Probléma, hiányosság: '+options.problems}</p>
         <p style={{fontSize: '21px'}}>{'Vállalás részletei: '+options.details}</p>
       </div>
@@ -34,15 +34,15 @@ export async function generateImage({
     height: options.height,
     fonts: [
         {
-          name: 'Roboto-Regular',
+          name: 'Montserrat-Regular',
           data: interFontRegular,
           weight: 400,
           style: 'normal',
         },
         {
-          name: 'Roboto-Bold',
+          name: 'Montserrat-Bold',
           data: interFontBold,
-          weight: 400,
+          weight: 800,
           style: 'normal',
         },
       ],
