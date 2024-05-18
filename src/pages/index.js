@@ -35,10 +35,10 @@ export default function Home({ records, data, props }) {
 
         <div style={{maxWidth: "800px", marginLeft: "auto", marginRight: "auto", width: "100%", backgroundColor: "var(--dark-blue)"}}>
           <p>Itt hamarosan a K-Monitor Nyitott Önkormányzatok projekt keretében tett polgármesterjelölti vállalások lesznek böngészhetők egy interaktív térképen!</p>
-          <p>Addig is olvasd el <a href="https://drive.google.com/file/d/1bY_8IDRlutW7103vRZYfvnsUeoj8Aosy/view">kiadványunkat</a>, ahol hazai és nemzetközi példákkal illusztráltuk, mit értünk a gyakorlatban a nyitott önkormányzatiság alatt. </p>
+          <p>Addig is olvasd el <a href="https://drive.google.com/file/d/1bY_8IDRlutW7103vRZYfvnsUeoj8Aosy/view" target="_blank">kiadványunkat</a>, ahol hazai és nemzetközi példákkal illusztráltuk, mit értünk a gyakorlatban a nyitott önkormányzatiság alatt. </p>
         </div>
         <div style={{display: 'flex', flexDirection: 'row'}}>
-          <a className='button' style={{marginRight: '50px'}} href='https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform' target="_blank">Polgármesterjelölt vagyok, vállalást teszek!</a>
+          <a className='button' style={{marginRight: '50px'}} href='https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform'>Polgármesterjelölt vagyok, vállalást teszek!</a>
           {/* <a className='button' href='/list'>Választó vagyok, megnézem a vállalásokat!</a> */}
           <a className='disabled button'>Választó vagyok, megnézem a vállalásokat!</a>
         </div>
