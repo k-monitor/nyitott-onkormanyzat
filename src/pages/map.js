@@ -15,6 +15,9 @@ import path from 'path';
 import { useState } from "react";
 import slugify from 'slugify'
 import catToColor from 'src/utils/categoryColor';
+import { Source_Code_Pro, Montserrat } from 'next/font/google'
+
+const scp = Source_Code_Pro({ subsets: ['latin'] })
 
 
 const DEFAULT_CENTER = [47.497913, 19.040236]
@@ -53,12 +56,16 @@ export default function Home({ records, data, props }) {
                   {records.map((record) => (
                     <Marker key={record.id} position={[record.lat,record.long]}>
                       <Popup>
-                        <div style={{border: "solid #111 3px", padding: "20px", margin: "0 !important", }}>
-                        <h1>{record.name}</h1>
-                        <p><a href={'/district/'+slugify(record.district)}>{record.district}</a></p>
-                        <img src={record.img}></img>
-                        <p>{record.title}</p>
-                        <Button isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
+                        <div className={scp.className} style={{border: "solid #eee 3px", borderColor: catToColor(record.category), padding: "5px", margin: "0 !important", display: "flex"}}>
+                          <div style={{height: "200px", width: "150px", marginRight: "4px", }}>
+                            <img width={150} height={200} style={{height: "200px", width: "150px", border: "solid #eee 3px"}} src={record.img}></img>
+                          </div>
+                          <div style={{minWidth: "200px", display: "flex", flexDirection: 'column'}}>
+                            <h1 style={{margin: "0"}}>{record.name}</h1>
+                            <p style={{margin: "0"}}><a href={'/district/'+slugify(record.district)}>{record.district}</a></p>
+                            <p style={{margin: "0", fontSize: "17px"}}>{record.title}</p>
+                            <Button style={{marginTop: "auto", bottom: "0", backgroundColor: "var(--dark-blue)"}} isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
+                          </div>
                         </div>
                       </Popup>
                     </Marker>

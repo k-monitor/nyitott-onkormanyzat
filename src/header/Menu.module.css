@@ -44,7 +44,7 @@
 }
 
 .menulist li a:hover {
-    color: var(--nh-accent-color);
+    color: var(--dark-blue);
 }
 
 .footer {

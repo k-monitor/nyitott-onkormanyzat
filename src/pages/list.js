@@ -40,26 +40,27 @@ export default function Home({ records, props }) {
             <div style={{fontSize: '21px', display: "flex", flexDirection: "column", position: "absolute"}} className={scp.className}>
                 {records.map((record) => (
                   <div style={{marginLeft: "auto", marginRight: "auto", marginTop: "20px", paddingBottom: "10px", alignSelf: "center", display: "flex"}}>
-                    <div style={{
+                    <a style={{fontSize: "25px"}} href={'/candidates/'+record.id}><div style={{
                       border: "solid var(--cat-blue) 3px",
                       borderColor: catToColor(record.category),
                       backgroundColor: catToColor(record.category),
                       height: "134px", width: "40" }}>
                       <img src={record.img} style={{height: "128px", width: "96px"}}></img>
-                    </div>
-                    <div style={{
+                    </div></a>
+                    <a style={{
                       border: "solid var(--cat-blue) 3px",
                       borderColor: catToColor(record.category),
                       backgroundColor: catToColor(record.category),
                       padding: "10px",
                       width: "700px",
                       color: "#eee",
-                      marginLeft: "10px"}}>
-                      <p style={{margin: 0}}><a style={{fontSize: "25px"}} href={'/candidates/'+record.id}>{record.name}</a></p>
-                      <p style={{margin: 0}}><a style={{fontSize: "15px"}} href={'/district/'+slugify(record.district)}>{record.district}</a></p>
+                      marginLeft: "4px"}} href={'/candidates/'+record.id}>
+                      <div >
+                      <p style={{margin: 0}}>{record.name}</p>
+                      <p style={{margin: 0}}>{record.district}</p>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.organisation}</p>
                       <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
-                    </div>
+                    </div></a>
                   </div>
                 ))}
             </div>

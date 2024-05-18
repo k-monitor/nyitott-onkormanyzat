@@ -35,7 +35,11 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 button > svg > rect {
-    fill: black
+    fill: var(--dark-blue);
+}
+
+button:hover > svg > rect {
+    fill: var(--light-blue);
 }
 
 :root {
@@ -82,7 +86,7 @@ button > svg > rect {
 }
 
 a:hover {
-    color: var(--nh-accent-color);
+    color: var(--dark-blue);
 }
 
 @media screen and (min-width: 768px) {
@@ -98,6 +102,10 @@ h1 {
 .leaflet-container {
     height: 100%;
     width: 100%;
+}
+
+.leaflet-popup-content-wrapper {
+    padding: 0 !important;
 }
 
 .leaflet-pane.leaflet-tile-pane {
@@ -128,6 +136,7 @@ h1 {
 
 .leaflet-popup * {
     border-radius: 0 !important;
+    box-shadow: none !important;
 }
 
 .leaflet-popup a {
