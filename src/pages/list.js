@@ -10,7 +10,7 @@ import MapIcon from "../../assets/my-location.svg";
 import { FaMapMarked } from "react-icons/fa";
 import slugify from 'slugify';
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
-import catToColor from 'src/utils/categoryColor';
+import {catToColor, catToProjColor} from 'src/utils/categoryColor';
 
 const scp = Source_Code_Pro({ subsets: ['latin'] })
 
@@ -37,32 +37,41 @@ export default function Home({ records, props }) {
       <HotelContext.Provider value={{ hotels }}>
         <MapContext.Provider value={mapData}>
           <Layout {...props} >
+          <style jsx>{`
+              .entry:hover {
+                -webkit-filter: brightness(90%)
+              }
+            `}</style>
             <div style={{fontSize: '21px', display: "flex", flexDirection: "column", position: "absolute"}} className={scp.className}>
+            <div style={{padding: "10px", marginLeft: "auto", marginRight: "auto"}}>
                 {records.map((record) => (
-                  <div style={{marginLeft: "auto", marginRight: "auto", marginTop: "20px", paddingBottom: "10px", alignSelf: "center", display: "flex"}}>
+                  <div className='entry' style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", marginLeft: "auto", marginRight: "auto", marginTop: "20px", marginBottom: "5px", alignSelf: "center", display: "flex"}}>
                     <a style={{fontSize: "25px"}} href={'/candidates/'+record.id}><div style={{
-                      border: "solid var(--cat-blue) 3px",
-                      borderColor: catToColor(record.category),
-                      backgroundColor: catToColor(record.category),
-                      height: "134px", width: "40" }}>
+                      // border: "solid var(--cat-blue) 3px",
+                      // borderColor: catToProjColor(record.category),
+                      // backgroundColor: catToProjColor(record.category),
+                      height: "128px", width: "96px",  }}>
                       <img src={record.img} style={{height: "128px", width: "96px"}}></img>
                     </div></a>
                     <a style={{
-                      border: "solid var(--cat-blue) 3px",
-                      borderColor: catToColor(record.category),
-                      backgroundColor: catToColor(record.category),
+                      // border: "solid var(--cat-blue) 3px",
+                      // borderColor: catToProjColor(record.category),
+                      // backgroundColor: catToColor(record.category),
                       padding: "10px",
-                      width: "700px",
-                      color: "#eee",
-                      marginLeft: "4px"}} href={'/candidates/'+record.id}>
-                      <div >
-                      <p style={{margin: 0}}>{record.name}</p>
-                      <p style={{margin: 0}}>{record.district}</p>
+                      maxWidth: "700px",
+                      width: "100%",
+                      color: "#111",
+                      marginLeft: "4px",
+                      }} href={'/candidates/'+record.id}>
+                      <div>
+                      <p style={{margin: 0, fontSize: "20px"}}>{record.name}</p>
+                      <p style={{margin: 0, fontSize: "15px"}}>{record.district}</p>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.organisation}</p>
                       <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
                     </div></a>
                   </div>
                 ))}
+            </div>
             </div>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px'}}>
               <a href='/map' style={{display: 'block'}}><FaMapMarked size={48} style={{pointerEvents: 'none'}}></FaMapMarked></a>

@@ -12,6 +12,8 @@ import { CSSTransition } from "react-transition-group";
 import { useEffect, useContext } from "react";
 import { MapContext } from "../context";
 import { config } from "src/config";
+import { Source_Code_Pro, Montserrat } from 'next/font/google'
+const scp = Source_Code_Pro({ subsets: ['latin'] })
 
 const Menu = () => {
     const menuRef = useRef(null);
@@ -25,7 +27,7 @@ const Menu = () => {
 
 
     return (
-        <>
+        <div className={scp.className}>
             <CSSTransition in={showMenu} nodeRef={menuRef} classNames="Menu" unmountOnExit timeout={200}>
                 <nav className={styles.menu} ref={menuRef}>
                     <div className={styles.content}>
@@ -35,7 +37,7 @@ const Menu = () => {
                             </button>
                         </div>
 
-                        <Logo style={{scale:"2", margin: "30px", marginBottom: "50px", marginLeft: "70px", fill: "var(--dark-blue)"}} />
+                        <Logo style={{scale:"2", margin: "0px", marginBottom: "50px", marginLeft: "70px", fill: "var(--dark-blue)"}} />
 
                         <ul className={styles.menulist}>
                             <li><a href={config.prefix+'/list/'} onClick={closeMenu}>Jelöltek vállalásai</a></li>
@@ -65,7 +67,7 @@ const Menu = () => {
             <CSSTransition in={showMenu} nodeRef={backdropRef} classNames="MenuBackdrop" unmountOnExit timeout={200}>
                 <div className={styles.backdrop} ref={backdropRef} onClick={closeMenu} />
             </CSSTransition>
-        </>
+        </div>
     );
 };
 
