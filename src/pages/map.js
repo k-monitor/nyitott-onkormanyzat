@@ -17,6 +17,7 @@ import slugify from 'slugify'
 import {catToColor} from 'src/utils/categoryColor';
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
 const scp = Source_Code_Pro({ subsets: ['latin'] })
+import { FaListAlt } from "react-icons/fa";
 
 
 
@@ -75,6 +76,10 @@ export default function Home({ records, data, props }) {
                 </>
               )}
             </Map>
+            <div style={{top: '100px', right: '16px', width: '48px', height: '48px'}}>
+              <a href='/list' style={{display: 'block'}}><FaListAlt  size={48} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaListAlt></a>
+            </div>
+
           </Layout>
         </MapContext.Provider>
       </HotelContext.Provider>

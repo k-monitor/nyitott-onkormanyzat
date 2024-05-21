@@ -13,6 +13,8 @@ import popStyles from "../../css/Popup.module.css";
 import styles from "../../css/map.module.css";
 import slugify from 'slugify'
 import { FacebookShareButton, FacebookIcon } from 'react-share';
+import { FaMapMarked, FaListAlt } from "react-icons/fa";
+import {catToColor, catToProjColor} from 'src/utils/categoryColor';
 
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
@@ -75,21 +77,28 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         <meta property="og:type" content="website" />
       </Head>
 
-      <div style={{display: 'flex', position: 'relative', height: '', justifyContent: 'space-between'}}>
+      <div className='maindiv' style={{display: 'flex', position: 'relative', flexDirection: "row", justifyContent: "space-between"}}>
         <div style={{position: 'relative', width: '50%'}}>
-          <h1 style={{marginBottom: "4px"}}>{pageData.name}</h1>
-          <p style={{marginTop: "0"}}><a href={'/district/'+slugify(pageData.district)}>{pageData.district}</a></p>
-          <FacebookShareButton style={{right: '16px', top: '100px', width: '64px', height: '64px', position: 'fixed'}} url={config.baseUrl+'candidates/'+pageData.id}><FacebookIcon></FacebookIcon></FacebookShareButton>
-          <img src={pageData.img} width="400"></img>
-          <p style={{marginTop: "0"}}>{pageData.organisation} jelöltje</p>
-          <h2 style={{marginBottom: "0"}}>Program</h2>
-          <p>{pageData.title}</p>
-          <h2 style={{marginBottom: "0"}}>Problémák</h2>
-          <p>{pageData.problems}</p>
-          <h2 style={{marginBottom: "0"}}>Részletek</h2>
-          <p>{pageData.details}</p>
+          <div style={{backgroundColor: "#eee",minHeight: "auto !important", display: "flex", flexDirection: "row", margin: "0", padding: "0", marginTop: "21px", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(pageData.category), borderRight: "1px solid #111", borderTop: "1px solid #111", borderLeft: "1px solid #111", marginBottom: "10px"}}>
+            <img src={pageData.img} width="75" height="100px" style={{minHeight: "auto !important", }}></img>
+            <div style={{minHeight: "auto !important"}}>
+              <h1 style={{marginBottom: "4px", marginTop: "10px"}}>{pageData.name}</h1>
+              <p style={{marginTop: "0", marginBottom: "0", color: "var(--mid-blue)"}}><a href={'/district/'+slugify(pageData.district)}>{pageData.district}</a></p>
+              <p style={{marginTop: "0", marginBottom: "0"}}>{pageData.organisation}</p>
+            </div>
+            <FacebookShareButton style={{ width: '64px', height: '64px', marginLeft: "auto", marginTop: "10px", marginRight: "10px"}} url={config.baseUrl+'candidates/'+pageData.id}><FacebookIcon></FacebookIcon></FacebookShareButton>
+          </div>
+          <div style={{border: "1px solid #111"}}>
+            <h2 style={{marginBottom: "0"}}>Program</h2>
+            <p>{pageData.title}</p>
+            <h2 style={{marginBottom: "0"}}>Problémák</h2>
+            <p>{pageData.problems}</p>
+            <h2 style={{marginBottom: "0"}}>Részletek</h2>
+            <p>{pageData.details}</p>
+          </div>
         </div>
-        <div style={{left: '50%', top: '120px', width: '30%', left: '50%', position: 'fixed'}}>
+        <div style={{marginTop: '21px', display: "flex", flexDirection: "row"}}>
+          <div style={{minWidth: "300px", zIndex: "-1", border: "1px solid #111", padding: "0", marginRight: "20px", height: "fit-content" }}>
           <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
             {({ TileLayer, Marker, Popup }) => (
               <>
@@ -97,12 +106,17 @@ export default function Page({ pageData, ogImage, records, props, data }) {
                   url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                   attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
                 />
-                  <Marker key={pageData.id} position={[pageData.lat,pageData.long]}>
-                  </Marker>
+                <Marker key={pageData.id} position={[pageData.lat,pageData.long]}></Marker>
               </>
             )}
           </Map>
+          </div>
+          <div style={{justifyContent: "start", display: "flex"}}>
+          <a href='/list' style={{marginBottom: "0",display: 'block'}}><FaListAlt  size={48} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaListAlt></a>
+          <a href='/map' style={{marginBottom: "0",display: 'block'}}><FaMapMarked  size={48} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
+          </div>
         </div>
+        
       </div>
       </Layout>
       </MapContext.Provider>
@@ -111,7 +125,6 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         div {
           display: flex;
           flex-direction: column;
-          min-height: 100vh;
           padding: 0 20px;
         }
 
@@ -127,6 +140,17 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         p {
           font-size: 1.2em;
           color: #555;
+        }
+
+        @media only screen and (max-width: 800px) {
+          .maindiv {
+            flex-direction: column !important;
+            margin: 0;
+            padding: 0;
+          }
+          .maindiv > div {
+            width: 100% !important;
+          }
         }
       `}</style>
 

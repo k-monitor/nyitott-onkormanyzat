@@ -11,6 +11,9 @@ import path from 'path';
 import popStyles from "../../css/Popup.module.css";
 import styles from "../../css/map.module.css";
 import slugify from 'slugify'
+import { Source_Code_Pro, Montserrat } from 'next/font/google'
+import {catToColor, catToProjColor} from 'src/utils/categoryColor';
+const scp = Source_Code_Pro({ subsets: ['latin'] })
 
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
@@ -49,9 +52,6 @@ export default function Page({ pageData, records, props, data, districtName }) {
 
   return (
     <>
-      <HotelContext.Provider value={{ hotels }}>
-        <MapContext.Provider value={mapData}>
-        <Layout candidate={true} {...props} >
         <Head>
         <title>{districtName}</title>
         <meta name="description" content={districtName} />
@@ -61,13 +61,45 @@ export default function Page({ pageData, records, props, data, districtName }) {
         <meta property="og:type" content="website" />
       </Head>
 
+      <HotelContext.Provider value={{ hotels }}>
+        <MapContext.Provider value={mapData}>
+        <Layout candidate={true} {...props} >
+
       <div style={{display: 'flex', position: 'relative', height: '', justifyContent: 'space-between'}}>
-        <div style={{position: 'relative', width: '50%'}}>
+        <div style={{position: 'relative', width: '50%', marginLeft: "10px"}}>
           <h1 style={{marginBottom: "4px"}}>{districtName}</h1>
           <p style={{marginTop: "0"}}>{pageData.length} db jelölt</p>
+            <div style={{fontSize: '21px', display: "flex", flexDirection: "column", position: "absolute"}} className={scp.className}>
+          <div style={{padding: "10px", marginLeft: "auto", marginRight: "auto"}}>
           {pageData.map((record) => (
-            <li><a href={'/candidates/'+record.id}>{record.name}</a></li>
-          ))}
+                  <div className='entry' style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", marginLeft: "auto", marginRight: "auto", marginTop: "20px", marginBottom: "5px", alignSelf: "center", display: "flex"}}>
+                  <a style={{fontSize: "25px"}} href={'/candidates/'+record.id}><div style={{
+                    // border: "solid var(--cat-blue) 3px",
+                    // borderColor: catToProjColor(record.category),
+                    // backgroundColor: catToProjColor(record.category),
+                    height: "128px", width: "96px",  }}>
+                    <img src={record.img} style={{height: "128px", width: "96px"}}></img>
+                  </div></a>
+                  <a style={{
+                    // border: "solid var(--cat-blue) 3px",
+                    // borderColor: catToProjColor(record.category),
+                    // backgroundColor: catToColor(record.category),
+                    padding: "10px",
+                    maxWidth: "700px",
+                    width: "100%",
+                    color: "#111",
+                    marginLeft: "4px",
+                    }} href={'/candidates/'+record.id}>
+                    <div>
+                    <h3 style={{margin: 0, fontSize: "20px"}}>{record.name}</h3>
+                    <p style={{margin: 0, fontSize: "15px"}}>{record.district}</p>
+                    <p style={{margin: 0, fontSize: "15px"}}>{record.organisation}</p>
+                    <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
+                  </div></a>
+                </div>
+        ))}
+        </div>
+        </div>
         </div>
         <div style={{left: '50%', top: '120px', width: '30%', left: '50%', position: 'fixed'}}>
         {(pageData.length > 0) && <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
@@ -89,13 +121,6 @@ export default function Page({ pageData, records, props, data, districtName }) {
       </MapContext.Provider>
     </HotelContext.Provider>
     <style jsx>{`
-        div {
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-          padding: 0 20px;
-        }
-
         main {
           text-align: center;
         }
@@ -103,6 +128,9 @@ export default function Page({ pageData, records, props, data, districtName }) {
         h1 {
           font-size: 2em;
           color: #333;
+        }
+        .entry:hover {
+          -webkit-filter: brightness(90%);
         }
 
         p {
