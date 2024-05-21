@@ -41,6 +41,9 @@ button > svg > rect {
 button:hover > svg > rect {
     fill: var(--light-blue);
 }
+a:hover svg {
+    -webkit-filter: brightness(70%);
+  }
 
 :root {
     --mid-blue: #4c89ba;

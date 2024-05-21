@@ -39,7 +39,7 @@ export default function Home({ records, props }) {
           <Layout {...props} >
           <style jsx>{`
               .entry:hover {
-                -webkit-filter: brightness(90%)
+                -webkit-filter: brightness(90%);
               }
             `}</style>
             <div style={{fontSize: '21px', display: "flex", flexDirection: "column", position: "absolute"}} className={scp.className}>
@@ -64,7 +64,7 @@ export default function Home({ records, props }) {
                       marginLeft: "4px",
                       }} href={'/candidates/'+record.id}>
                       <div>
-                      <p style={{margin: 0, fontSize: "20px"}}>{record.name}</p>
+                      <h3 style={{margin: 0, fontSize: "20px"}}>{record.name}</h3>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.district}</p>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.organisation}</p>
                       <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
@@ -74,7 +74,7 @@ export default function Home({ records, props }) {
             </div>
             </div>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px'}}>
-              <a href='/map' style={{display: 'block'}}><FaMapMarked size={48} style={{pointerEvents: 'none'}}></FaMapMarked></a>
+              <a href='/map' style={{display: 'block'}}><FaMapMarked  size={48} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
             </div>
 
           </Layout>

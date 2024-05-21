@@ -32,7 +32,7 @@ const Menu = () => {
                 <nav className={styles.menu} ref={menuRef}>
                     <div className={styles.content}>
                         <div className={styles.close}>
-                            <button onClick={closeMenu} type="button" className="resetButton">
+                            <button onClick={closeMenu} type="button" style={{zIndex: "10"}} className="resetButton">
                                 <CloseIcon />
                             </button>
                         </div>
