@@ -65,14 +65,14 @@ export default function Page({ pageData, records, props, data, districtName }) {
         <MapContext.Provider value={mapData}>
         <Layout candidate={true} {...props} >
 
-      <div style={{display: 'flex', position: 'relative', height: '', justifyContent: 'space-between'}}>
+      <div className="maindiv" style={{display: 'flex', position: 'relative', height: '', justifyContent: 'space-between'}}>
         <div style={{position: 'relative', width: '50%', marginLeft: "10px"}}>
-          <h1 style={{marginBottom: "4px"}}>{districtName}</h1>
-          <p style={{marginTop: "0"}}>{pageData.length} db jelölt</p>
+            <h1 style={{marginBottom: "4px"}}>{districtName}</h1>
+            <p style={{marginTop: "0"}}>{pageData.length} db jelölt</p>
             <div style={{fontSize: '21px', display: "flex", flexDirection: "column", position: "absolute"}} className={scp.className}>
-          <div style={{padding: "10px", marginLeft: "auto", marginRight: "auto"}}>
-          {pageData.map((record) => (
-                  <div className='entry' style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", marginLeft: "auto", marginRight: "auto", marginTop: "20px", marginBottom: "5px", alignSelf: "center", display: "flex"}}>
+              <div style={{padding: "10px", marginLeft: "auto", marginRight: "auto"}}>
+              {pageData.map((record) => (
+                <div className='entry' style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", marginLeft: "auto", marginRight: "auto", marginTop: "20px", marginBottom: "5px", alignSelf: "center", display: "flex"}}>
                   <a style={{fontSize: "25px"}} href={'/candidates/'+record.id}><div style={{
                     // border: "solid var(--cat-blue) 3px",
                     // borderColor: catToProjColor(record.category),
@@ -97,24 +97,26 @@ export default function Page({ pageData, records, props, data, districtName }) {
                     <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
                   </div></a>
                 </div>
-        ))}
+              ))}
+              </div>
+            </div>
         </div>
-        </div>
-        </div>
-        <div style={{left: '50%', top: '120px', width: '30%', left: '50%', position: 'fixed'}}>
-        {(pageData.length > 0) && <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
-            {({ TileLayer, Marker, Popup }) => (
-              <>
-                <TileLayer
-                  url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-                  attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
-                />
-                  {pageData.map((record) => (
-                    <Marker key={record.id} position={[record.lat,record.long]}></Marker>
-                  ))}
-              </>
-            )}
-          </Map>}
+        <div style={{marginTop: '21px', display: "flex", flexDirection: "row"}}>
+          <div style={{minWidth: "300px", zIndex: "-1", border: "1px solid #111", padding: "0", marginRight: "20px", height: "fit-content" }}>
+            {(pageData.length > 0) && <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
+              {({ TileLayer, Marker, Popup }) => (
+                <>
+                  <TileLayer
+                    url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+                    attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
+                  />
+                    {pageData.map((record) => (
+                      <Marker key={record.id} position={[record.lat,record.long]}></Marker>
+                    ))}
+                </>
+              )}
+            </Map>}
+          </div>
         </div>
       </div>
       </Layout>
@@ -137,6 +139,18 @@ export default function Page({ pageData, records, props, data, districtName }) {
           font-size: 1.2em;
           color: #555;
         }
+
+        @media only screen and (max-width: 800px) {
+          .maindiv {
+            flex-direction: column !important;
+            margin: 0;
+            padding: 0;
+          }
+          .maindiv > div {
+            width: 100% !important;
+          }
+        }
+
       `}</style>
 
     </>

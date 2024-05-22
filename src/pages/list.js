@@ -76,7 +76,6 @@ export default function Home({ records, props }) {
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", backgroundColor: "#eee", border: "2px solid #111"}}>
               <a href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
             </div>
-
           </Layout>
         </MapContext.Provider>
       </HotelContext.Provider>
