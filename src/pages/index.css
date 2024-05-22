@@ -149,9 +149,13 @@ h1 {
 .leaflet-popup-content, .leaflet-popup-content-wrapper {
     width: auto !important;
 }
+.candidateButton:hover {
+    -webkit-filter: brightness(90%);
+  }
 
 .leaflet-popup-close-button {
-    width: 50px !important;
-    height: 50px !important;
+    width: 30px !important;
+    height: 30px !important;
+    margin-right: 8px;
     font: 30px / 40px Tahoma, Verdana, sans-serif !important;
 }
