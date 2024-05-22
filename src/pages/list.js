@@ -50,8 +50,8 @@ export default function Home({ records, props }) {
                       // border: "solid var(--cat-blue) 3px",
                       // borderColor: catToProjColor(record.category),
                       // backgroundColor: catToProjColor(record.category),
-                      height: "128px", width: "96px",  }}>
-                      <img src={record.img} style={{height: "128px", width: "96px"}}></img>
+                      height: "144px", width: "96px",  }}>
+                      <img src={record.img} style={{height: "144px", width: "96px"}}></img>
                     </div></a>
                     <a style={{
                       // border: "solid var(--cat-blue) 3px",

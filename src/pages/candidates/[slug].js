@@ -44,6 +44,7 @@ export async function getStaticProps({ params }) {
       problems: pageData.problems,
       details: pageData.details,
       district: pageData.district,
+      category: pageData.category,
     }
   })
 
@@ -89,12 +90,18 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <FacebookShareButton style={{ width: '64px', height: '64px', marginLeft: "auto", marginTop: "10px", marginRight: "10px"}} url={config.baseUrl+'candidates/'+pageData.id}><FacebookIcon></FacebookIcon></FacebookShareButton>
           </div>
           <div style={{border: "1px solid #111"}}>
-            <h2 style={{marginBottom: "0"}}>Program</h2>
+            <h2 style={{marginBottom: "0"}}>Vállalás rövid címe</h2>
             <p>{pageData.title}</p>
-            <h2 style={{marginBottom: "0"}}>Problémák</h2>
+            <h2 style={{marginBottom: "0"}}>Probléma, hiányosság, amire megoldást kínál</h2>
             <p>{pageData.problems}</p>
-            <h2 style={{marginBottom: "0"}}>Részletek</h2>
+            <h2 style={{marginBottom: "0"}}>Vállalás részletes leírása</h2>
             <p>{pageData.details}</p>
+            <h2>A tevékenység eredményeként létrejövő nyitott kormányzati eszközök, gyakorlatok</h2>
+            <div style={{display: "flex", flexDirection: "row", justifyContent: "start", padding: "0"}}>
+            {pageData.practices.split(",").map((practice) => (
+                <div style={{border: "2px solid #111", backgroundColor: "var(--dark-blue)", color: "white", padding: "5px", margin: "3px"}}>{practice}</div>
+            ))}
+            </div>
           </div>
         </div>
         <div style={{marginTop: '21px', display: "flex", flexDirection: "row"}}>

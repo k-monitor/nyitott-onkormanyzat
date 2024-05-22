@@ -64,8 +64,8 @@ export default function Home({ records, data, props }) {
                     <Marker key={record.id} position={[record.lat,record.long]}>
                       <Popup>
                         <div className={scp.className} style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", margin: "0 !important", display: "flex"}}>
-                          <div style={{height: "200px", width: "150px", }}>
-                            <img width={150} height={200} style={{height: "200px", width: "150px", maxWidth: 'none' }} src={record.img}></img>
+                          <div style={{height: "225px", width: "150px", }}>
+                            <img width={150} height={225} style={{height: "225px", width: "150px", maxWidth: 'none' }} src={record.img}></img>
                           </div>
                           <div style={{minWidth: "200px", display: "flex", padding: "5px", flexDirection: 'column'}}>
                             <h1 style={{margin: "0", fontSize: "18px"}}>{record.name}</h1>
