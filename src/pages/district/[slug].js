@@ -68,11 +68,11 @@ export default function Page({ pageData, records, props, data, districtName }) {
         <Layout candidate={true} {...props} >
 
       <div className="maindiv" style={{display: 'flex', position: 'relative', height: '', justifyContent: 'space-between'}}>
-        <div style={{position: 'relative', width: '50%', marginLeft: "10px"}}>
+        <div style={{position: 'relative', width: '50%', marginLeft: "20px"}}>
             <h1 style={{marginBottom: "4px"}}>{districtName}</h1>
             <p style={{marginTop: "0"}}>{pageData.length} db jelölt</p>
             <div style={{fontSize: '21px', display: "flex", flexDirection: "column", position: "absolute"}} className={scp.className}>
-              <div style={{padding: "10px", marginLeft: "auto", marginRight: "auto"}}>
+              <div style={{padding: "0px", marginLeft: "auto", marginRight: "auto"}}>
               {pageData.map((record) => (
                 <div className='entry' style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", marginLeft: "auto", marginRight: "auto", marginTop: "20px", marginBottom: "5px", alignSelf: "center", display: "flex"}}>
                   <a style={{fontSize: "25px"}} href={'/candidates/'+record.id}><div style={{
@@ -103,9 +103,9 @@ export default function Page({ pageData, records, props, data, districtName }) {
               </div>
             </div>
         </div>
-        <div style={{marginTop: '21px', display: "flex", flexDirection: "row"}}>
+        <div style={{margin: '21px', display: "flex", marginRight: "0px", flexDirection: "row"}}>
           <div style={{minWidth: "300px", zIndex: "-1", border: "1px solid #111", padding: "0", marginRight: "20px", height: "fit-content" }}>
-            {(pageData.length > 0) && <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={11} scrollWheelZoom={false} jsonData={data} pageData={pageData} >
+            {(pageData.length > 0) && <Map className={styles.homeMap} style={{position: 'relative', }} zoomControl={false} width={100} height={100} center={DEFAULT_CENTER} zoom={11} scrollWheelZoom={false} jsonData={data} pageData={pageData} >
               {({ TileLayer, Marker, Popup }) => (
                 <>
                   <TileLayer
