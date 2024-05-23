@@ -43,13 +43,25 @@ const Map = ({ children, className, width, height, jsonData, ...rest }) => {
     mapClassName = `${mapClassName} ${className}`;
   }
 
+  const iconPerson = new L.Icon({
+    iconUrl: 'http://localhost:3000/leaflet/images/marker-icon-blue.png',
+    iconRetinaUrl: 'http://localhost:3000/leaflet/images/marker-icon-blue.png',
+    iconAnchor: null,
+    popupAnchor: null,
+    shadowUrl: null,
+    shadowSize: null,
+    shadowAnchor: null,
+    iconSize: new L.Point(60, 75),
+    className: 'leaflet-div-icon'
+  });
+
   useEffect(() => {
     (async function init() {
       delete Leaflet.Icon.Default.prototype._getIconUrl;
       Leaflet.Icon.Default.mergeOptions({
-        iconRetinaUrl: config.baseUrl+'leaflet/images/marker-icon-2x.png',
-        iconUrl: config.baseUrl+'leaflet/images/marker-icon.png',
-        shadowUrl: config.baseUrl+'leaflet/images/marker-shadow.png',
+        iconRetinaUrl: '/leaflet/images/marker-icon-blue.png',
+        iconUrl: '/leaflet/images/marker-icon-blue.png',
+        shadowUrl: '/leaflet/images/marker-shadow.png',
       });
     })();
   }, []);
@@ -61,7 +73,6 @@ const Map = ({ children, className, width, height, jsonData, ...rest }) => {
     console.log(event.layer.feature.properties.NAME)
      
     router.push('/district/'+slugify(event.layer.feature.properties.NAME), { scroll: false })
-
   }
   return (
     <MapContainer className={mapClassName} onClick={handleClick} {...rest}>

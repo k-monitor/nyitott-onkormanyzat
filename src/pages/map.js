@@ -14,10 +14,11 @@ import path from 'path';
 // import MarkerClusterGroup from 'react-leaflet-cluster'
 import { useState } from "react";
 import slugify from 'slugify'
-import catToColor from 'src/utils/categoryColor';
+import {catToColor} from 'src/utils/categoryColor';
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
-
 const scp = Source_Code_Pro({ subsets: ['latin'] })
+import { FaList } from "react-icons/fa";
+
 
 
 const DEFAULT_CENTER = [47.497913, 19.040236]
@@ -37,6 +38,7 @@ export default function Home({ records, data, props }) {
   const [hotels, setHotels] = useState(records);
   const mapData = { ...state, dispatch };
 
+
   return (
     <>
       <Head>
@@ -45,6 +47,11 @@ export default function Home({ records, data, props }) {
       <HotelContext.Provider value={{ hotels }}>
         <MapContext.Provider value={mapData}>
           <Layout {...props} >
+          <style>{`
+            a:hover {
+              -webkit-filter: brightness(90%);
+            }
+          `}</style>
             <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={12} jsonData={data}  >
               {({ TileLayer, Marker, Popup }) => (
                 <>
@@ -56,15 +63,15 @@ export default function Home({ records, data, props }) {
                   {records.map((record) => (
                     <Marker key={record.id} position={[record.lat,record.long]}>
                       <Popup>
-                        <div className={scp.className} style={{border: "solid #eee 3px", borderColor: catToColor(record.category), padding: "5px", margin: "0 !important", display: "flex"}}>
-                          <div style={{height: "200px", width: "150px", marginRight: "4px", }}>
-                            <img width={150} height={200} style={{height: "200px", width: "150px", border: "solid #eee 3px"}} src={record.img}></img>
+                        <div className={scp.className} style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", margin: "0 !important", display: "flex"}}>
+                          <div style={{height: "225px", width: "150px", }}>
+                            <img width={150} height={225} style={{height: "225px", width: "150px", maxWidth: 'none' }} src={record.img}></img>
                           </div>
-                          <div style={{minWidth: "200px", display: "flex", flexDirection: 'column'}}>
-                            <h1 style={{margin: "0"}}>{record.name}</h1>
-                            <p style={{margin: "0"}}><a href={'/district/'+slugify(record.district)}>{record.district}</a></p>
+                          <div style={{minWidth: "200px", display: "flex", padding: "5px", flexDirection: 'column'}}>
+                            <h1 style={{margin: "0", fontSize: "18px"}}>{record.name}</h1>
+                            <p style={{margin: "0", width: "fit-content", }}><a style={{color: "var(--dark-blue)"}} href={'/district/'+slugify(record.district)}>{record.district}</a></p>
                             <p style={{margin: "0", fontSize: "17px"}}>{record.title}</p>
-                            <Button style={{marginTop: "auto", bottom: "0", backgroundColor: "var(--dark-blue)"}} isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
+                            <Button className='candidateButton' style={{marginTop: "auto", bottom: "0", backgroundColor: "var(--dark-blue)"}} isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
                           </div>
                         </div>
                       </Popup>
@@ -74,6 +81,10 @@ export default function Home({ records, data, props }) {
                 </>
               )}
             </Map>
+            <div style={{top: '100px', right: '16px', width: '48px', height: '48px', backgroundColor: "#eee", border: "2px solid #111"}}>
+              <a href='/list' style={{display: 'block', margin: "5px"}}><FaList  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaList></a>
+            </div>
+
           </Layout>
         </MapContext.Provider>
       </HotelContext.Provider>

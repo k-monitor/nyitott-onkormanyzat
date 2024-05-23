@@ -16,25 +16,13 @@ import { config } from "../config";
 
 const Header = (props) => {
     const { dispatch } = useContext(MapContext);
-    //const { i18n } = useTranslation();
-    //const { resolvedLanguage } = i18n;
-    //const location = useLocation();
-
-    const languageChangeHandler = (e) => {
-        const lang = e.target.value;
-        i18n.changeLanguage(lang);
-        localStorage.setItem(config.locales.paramName, lang);
-        // props.history.push({
-        //     pathname: location.pathname,
-        //     search: `?${config.locales.paramName}=${lang}`,
-        // });
-    };
 
     const onMenuCallback = useCallback(() => {
         dispatch({ type: "ToggleMenu", showMenu: true });
     }, [dispatch]);
 
     return (
+        <div >
         <header className={styles.header}>
             <div className={styles.logoContainer}>
                 <a
@@ -44,7 +32,7 @@ const Header = (props) => {
                     }}
                     className={styles.logo}
                 >
-                    <Logo style={{scale:"0.9", fill: "var(--dark-blue)"}} />
+                    <Logo style={{scale:"0.9", fill: "var(--dark-blue)", width: "150px"}} />
                 </a>
             </div>
             <div className={styles.searchContainer}>
@@ -58,6 +46,7 @@ const Header = (props) => {
                 </button>
             </div>
         </header>
+        </div>
     );
 };
 

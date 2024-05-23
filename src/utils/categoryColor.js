@@ -1,4 +1,4 @@
-export default function catToColor(category) {
+function catToColor(category) {
     switch (category) {
       case "atlathatosag":
         return "var(--cat-blue)"
@@ -8,3 +8,26 @@ export default function catToColor(category) {
         return "var(--cat-orange)"      
     }
   }
+  function catToFixColor(category) {
+    switch (category) {
+      case "atlathatosag":
+        return "#4498c4"
+      case "szamonkerhetoseg":
+        return "#61af1d"
+      case "reszveteliseg":
+        return "#e58500"      
+    }
+  }
+
+  function catToProjColor(category) {
+    switch (category) {
+      case "atlathatosag":
+        return "var(--cat-blue-proj)"
+      case "szamonkerhetoseg":
+        return "var(--cat-green-proj)"
+      case "reszveteliseg":
+        return "var(--cat-orange-proj)"      
+    }
+  }
+
+  export { catToColor, catToProjColor, catToFixColor };
