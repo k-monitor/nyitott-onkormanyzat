@@ -15,7 +15,7 @@ export default function Home({ records, props }) {
   return (
     <>
       <Head>
-
+        <title>Nyitott önkormányzat - K-Monitor</title>
       </Head>
       <HotelContext.Provider value={{ hotels }}>
         <MapContext.Provider value={mapData}>

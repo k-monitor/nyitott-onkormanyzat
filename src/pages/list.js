@@ -20,6 +20,8 @@ export async function getStaticProps() {
   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
   const records = await fetchCsv(url);
 
+  records.sort((a, b) => a.name.localeCompare(b.name))
+
   return { props: { records } }
 }
 

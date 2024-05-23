@@ -4,6 +4,10 @@ import * as ReactLeaflet from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useMapEvents } from 'react-leaflet';
 import { useState } from "react";
+import { Source_Code_Pro, Montserrat } from 'next/font/google'
+const scp = Source_Code_Pro({ subsets: ['latin'] })
+import {catToColorName, catToColor} from 'src/utils/categoryColor';
+import Button from '@components/ui/Button';
 
 import styles from './Map.module.scss';
 import { config } from 'src/config';
@@ -22,7 +26,7 @@ function LocationMarker() {
   })
 }
 
-const Map = ({ children, className, width, height, jsonData, ...rest }) => {
+const Map = ({ children, className, width, height, jsonData, pageData, ...rest }) => {
   let mapClassName = styles.map;
 
   const handleClick = (e) => {
@@ -69,6 +73,40 @@ const Map = ({ children, className, width, height, jsonData, ...rest }) => {
   const hasCandidate = [];
   const router = useRouter()
 
+  const createCustomIcon = (iconUrl) => {
+    return new Leaflet.Icon({
+      iconUrl: iconUrl,
+      iconAnchor: new L.Point(16, 48),
+      popupAnchor: new L.Point(0, 0),
+      iconSize: new L.Point(32, 48),
+      iconRetinaUrl: iconUrl,
+      className: 'leaflet-div-icon-transparent'
+    });
+  };
+
+
+  const markers = pageData.map((record) => {
+    const customIcon = createCustomIcon('https://nyitottonkormanyzat.k-monitor.hu/leaflet/images/marker-icon-'+catToColorName(record.category)+'-x2.png');
+    return (
+      <ReactLeaflet.Marker key={record.id} position={[record.lat, record.long]} icon={customIcon}>
+        <ReactLeaflet.Popup>
+          <div className={scp.className} style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", margin: "0 !important", display: "flex"}}>
+            <div style={{height: "225px", width: "150px", }}>
+              <img width={150} height={225} style={{height: "225px", width: "150px", maxWidth: 'none' }} src={record.img}></img>
+            </div>
+            <div style={{minWidth: "200px", display: "flex", padding: "5px", flexDirection: 'column'}}>
+              <h1 style={{margin: "0", fontSize: "18px"}}>{record.name}</h1>
+              <p style={{margin: "0", width: "fit-content", }}><a style={{color: "var(--dark-blue)"}} href={'/district/'+slugify(record.district)}>{record.district}</a></p>
+              <p style={{margin: "0", fontSize: "17px"}}>{record.title}</p>
+              <Button className='candidateButton' style={{marginTop: "auto", bottom: "0", backgroundColor: "var(--dark-blue)"}} isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
+            </div>
+          </div>
+        </ReactLeaflet.Popup>
+      </ReactLeaflet.Marker>
+    );
+  });
+
+
   function handleGeoJSONClick(event){
     console.log(event.layer.feature.properties.NAME)
      
@@ -90,6 +128,7 @@ const Map = ({ children, className, width, height, jsonData, ...rest }) => {
         }
       }
 } />
+    {markers}
     </MapContainer>
   )
 }
