@@ -24,11 +24,11 @@ export async function generateImage({
         <h1 style={{color: "white", fontSize: '52px', fontFamily: 'Montserrat-Bold', margin: '0'}}>{'NYITOTT ÖNKORMÁNYZATOT ÉPÍTEK!'}</h1>
         <p style={{color: "white", fontSize: '30px', margin: '0'}}>{options.district}</p>
         <h1 style={{color: "white", fontSize: '30px', fontFamily: 'Montserrat-Bold', margin: '0'}}>{options.name} polgármesterjelölt</h1>
-        <p style={{color: "white", fontSize: '30px', marginTop: "auto", marginBottom: '0', maxHeight: "50px" }}>{options.title}</p>
+        <p style={{color: "white", fontSize: '30px', marginTop: "auto", marginBottom: '10px', maxHeight: "50px" }}>{options.title}</p>
         <h1 style={{color: "white", fontSize: '26px', marginBottom: '0', fontFamily: 'Montserrat-Bold'}}>Probléma, hiányosság</h1>
         <p style={{color: "white", fontSize: '26px', marginTop: '0', marginBottom: "5px", maxWidth: "640px", maxHeight: "150px"}}>{options.short_problems}</p>
       </div>
-        <img style={{position: "absolute", bottom: "30px", right: "300px"}} src="https://raw.githubusercontent.com/k-monitor/nyitott-onkormanyzat/4b5e02a6e1541f0f87f98b1f29c4c13c8be00051/public/nyitott-onkormanyzat-logo-szoveg.svg" scale="0.2" width="180px"></img>
+        <img style={{position: "absolute", bottom: "30px", right: "260px"}} src="https://raw.githubusercontent.com/k-monitor/nyitott-onkormanyzat/4b5e02a6e1541f0f87f98b1f29c4c13c8be00051/public/nyitott-onkormanyzat-logo-szoveg.svg" scale="0.2" width="180px"></img>
     </div>
   )
   
