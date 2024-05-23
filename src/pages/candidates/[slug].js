@@ -90,7 +90,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <FacebookShareButton style={{ width: '64px', height: '64px', marginLeft: "auto", marginTop: "10px", marginRight: "10px"}} url={config.baseUrl+'candidates/'+pageData.id}><FacebookIcon></FacebookIcon></FacebookShareButton>
           </div>
           <div style={{border: "1px solid #111"}}>
-            <h2 style={{marginBottom: "0"}}>Vállalás rövid címe</h2>
+            <h2 style={{marginBottom: "0"}}>Vállalás címe</h2>
             <p>{pageData.title}</p>
             <h2 style={{marginBottom: "0"}}>Probléma, hiányosság, amire megoldást kínál</h2>
             <p>{pageData.problems}</p>
