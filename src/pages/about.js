@@ -12,9 +12,8 @@ export default function About(props) {
       <MapContext.Provider value={mapData}>
       <Layout {...props} >
     <div>
-      <Head>
-        <title>Info</title>
-        <meta name="description" content="Learn more about us" />
+    <Head>
+        <title>Nyitott önkormányzat - K-Monitor</title>
       </Head>
 
       <main>

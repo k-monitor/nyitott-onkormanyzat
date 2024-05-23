@@ -13,6 +13,8 @@ import styles from "../../css/map.module.css";
 import slugify from 'slugify'
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
 import {catToColor, catToProjColor} from 'src/utils/categoryColor';
+import { FaMapMarked, FaListAlt, FaList } from "react-icons/fa";
+
 const scp = Source_Code_Pro({ subsets: ['latin'] })
 
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
@@ -113,6 +115,14 @@ export default function Page({ pageData, records, props, data, districtName }) {
                 </>
               )}
             </Map>}
+          </div>
+          <div style={{justifyContent: "start", display: "flex", flexDirection: "column", padding: "0", marginRight: "20px"}}>
+            <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", marginBottom: "10px", backgroundColor: "#eee", border: "2px solid #111"}}>
+                <a href='/list' style={{display: 'block', margin: "5px"}}><FaList  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaList></a>
+            </div>
+            <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", backgroundColor: "#eee", border: "2px solid #111"}}>
+              <a href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
+            </div>
           </div>
         </div>
       </div>

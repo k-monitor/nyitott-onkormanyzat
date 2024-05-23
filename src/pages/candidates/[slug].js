@@ -14,7 +14,7 @@ import styles from "../../css/map.module.css";
 import slugify from 'slugify'
 import { FacebookShareButton, FacebookIcon } from 'react-share';
 import { FaMapMarked, FaListAlt, FaList } from "react-icons/fa";
-import {catToColor, catToProjColor} from 'src/utils/categoryColor';
+import {catToColor, catToProjColor, catTotText } from 'src/utils/categoryColor';
 
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
@@ -90,6 +90,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <FacebookShareButton style={{ width: '64px', height: '64px', marginLeft: "auto", marginTop: "10px", marginRight: "10px"}} url={config.baseUrl+'candidates/'+pageData.id}><FacebookIcon></FacebookIcon></FacebookShareButton>
           </div>
           <div style={{border: "1px solid #111"}}>
+            <div style={{position: "absolute", right: "20px", border: "3px solid #111", backgroundColor: "#eee", borderColor: catToColor(pageData.category), width: "fit-content", margin: "20px", padding: "4px"}}>{catTotText(pageData.category)}</div>
             <h2 style={{marginBottom: "0"}}>Vállalás címe</h2>
             <p>{pageData.title}</p>
             <h2 style={{marginBottom: "0"}}>Probléma, hiányosság, amire megoldást kínál</h2>

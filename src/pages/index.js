@@ -26,7 +26,7 @@ export default function Home({ records, data, props }) {
   return (
     <>
       <Head>
-
+        <title>Nyitott önkormányzat - K-Monitor</title>
       </Head>
       <main className={montserrat.className} >
         <div>

@@ -21,7 +21,7 @@ import { FaList } from "react-icons/fa";
 
 
 
-const DEFAULT_CENTER = [47.497913, 19.040236]
+const DEFAULT_CENTER = [47.2195681123155,	19.077758789062504]
 
 export async function getStaticProps() {
   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
@@ -42,7 +42,7 @@ export default function Home({ records, data, props }) {
   return (
     <>
       <Head>
-
+        <title>Nyitott önkormányzat - K-Monitor</title>
       </Head>
       <HotelContext.Provider value={{ hotels }}>
         <MapContext.Provider value={mapData}>
@@ -52,7 +52,7 @@ export default function Home({ records, data, props }) {
               -webkit-filter: brightness(90%);
             }
           `}</style>
-            <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={12} jsonData={data} pageData={records} >
+            <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={7} jsonData={data} pageData={records} >
               {({ TileLayer, Marker, Popup }) => (
                 <>
                   <TileLayer
