@@ -45,6 +45,7 @@ export async function getStaticProps({ params }) {
       details: pageData.details,
       district: pageData.district,
       category: pageData.category,
+      short_problems: pageData.short_problems,
     }
   })
 
