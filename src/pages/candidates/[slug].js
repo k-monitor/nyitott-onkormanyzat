@@ -99,9 +99,9 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <h2 style={{marginBottom: "0"}}>Vállalás részletes leírása</h2>
             <p>{pageData.details}</p>
             <h2>A tevékenység eredményeként létrejövő nyitott kormányzati eszközök, gyakorlatok</h2>
-            <div style={{display: "flex", flexDirection: "row", justifyContent: "start", padding: "0"}}>
+            <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "start", padding: "0"}}>
             {pageData.practices.split(",").map((practice) => (
-                <div style={{border: "2px solid #111", backgroundColor: "var(--dark-blue)", color: "white", padding: "5px", margin: "3px"}}>{practice}</div>
+                <div style={{border: "2px solid #111", width: "fit-content", backgroundColor: "var(--dark-blue)", color: "white", padding: "5px", margin: "3px"}}>{practice}</div>
             ))}
             </div>
           </div>
