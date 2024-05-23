@@ -106,14 +106,13 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         </div>
         <div style={{marginTop: '21px', display: "flex", flexDirection: "row"}}>
           <div style={{minWidth: "300px", zIndex: "-1", border: "1px solid #111", padding: "0", marginRight: "20px", height: "fit-content" }}>
-            <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={13} scrollWheelZoom={false} jsonData={data} >
+            <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={11} scrollWheelZoom={false} jsonData={data} pageData={records} >
               {({ TileLayer, Marker, Popup }) => (
                 <>
                   <TileLayer
                     url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
                     attribution="&copy; <a href='https://www.openstreetmap.org/copyright'>OpenStreetMap</a> contributors &copy; <a href='https://carto.com/attributions'>CARTO</a>"
                   />
-                  <Marker key={pageData.id} position={[pageData.lat,pageData.long]}></Marker>
                 </>
               )}
             </Map>

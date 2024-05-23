@@ -18,7 +18,16 @@ function catToColor(category) {
         return "#e58500"      
     }
   }
-
+  function catToColorName(category) {
+    switch (category) {
+      case "atlathatosag":
+        return "blue"
+      case "szamonkerhetoseg":
+        return "green"
+      case "reszveteliseg":
+        return "orange"      
+    }
+  }
   function catToProjColor(category) {
     switch (category) {
       case "atlathatosag":
@@ -30,4 +39,4 @@ function catToColor(category) {
     }
   }
 
-  export { catToColor, catToProjColor, catToFixColor };
+  export { catToColor, catToProjColor, catToFixColor, catToColorName };
