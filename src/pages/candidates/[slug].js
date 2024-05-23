@@ -79,14 +79,15 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         <meta property="og:type" content="website" />
       </Head>
 
-      <div className='maindiv' style={{display: 'flex', position: 'relative', flexDirection: "row", justifyContent: "space-between"}}>
-        <div style={{position: 'relative', width: '50%'}}>
+      <div className='maindiv' style={{display: 'flex', padding: "0", position: 'relative', flexDirection: "row", justifyContent: "space-between"}}>
+      <div style={{position: 'relative', width: '50%', padding: "0", marginBottom: "20px"}}>
+        <div style={{paddingBottom: "20px"}}>
           <div style={{backgroundColor: "#eee",minHeight: "auto !important", display: "flex", flexDirection: "row", margin: "0", padding: "0", marginTop: "21px", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(pageData.category), borderRight: "1px solid #111", borderTop: "1px solid #111", borderLeft: "1px solid #111", marginBottom: "10px"}}>
             <img src={pageData.img} style={{minHeight: "auto !important", width: "100", height:"150px" }}></img>
             <div style={{minHeight: "auto !important"}}>
               <h1 style={{marginBottom: "4px", marginTop: "10px"}}>{pageData.name}</h1>
               <p style={{marginTop: "0", marginBottom: "0", color: "var(--mid-blue)"}}><a href={'/district/'+slugify(pageData.district)}>{pageData.district}</a></p>
-              <p style={{marginTop: "0", marginBottom: "0"}}>{pageData.organisation}</p>
+              <p style={{marginTop: "0", marginBottom: "5px"}}>{pageData.organisation}</p>
             </div>
             <FacebookShareButton style={{ width: '64px', height: '64px', marginLeft: "auto", marginTop: "10px", marginRight: "10px"}} url={config.baseUrl+'candidates/'+pageData.id}><FacebookIcon></FacebookIcon></FacebookShareButton>
           </div>
@@ -99,16 +100,18 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <h2 style={{marginBottom: "0"}}>Vállalás részletes leírása</h2>
             <p>{pageData.details}</p>
             <h2>A tevékenység eredményeként létrejövő nyitott kormányzati eszközök, gyakorlatok</h2>
-            <div style={{display: "flex", flexDirection: "row", justifyContent: "start", padding: "0"}}>
+            <div style={{display: "flex", flexDirection: "row", flexWrap: "wrap", justifyContent: "start", padding: "0", marginBottom: "10px"}}>
             {pageData.practices.split(",").map((practice) => (
-                <div style={{border: "2px solid #111", backgroundColor: "var(--dark-blue)", color: "white", padding: "5px", margin: "3px"}}>{practice}</div>
+                <div style={{border: "2px solid #111", width: "fit-content", backgroundColor: "var(--dark-blue)", color: "white", padding: "5px", margin: "3px"}}>{practice}</div>
             ))}
             </div>
           </div>
         </div>
-        <div style={{marginTop: '21px', display: "flex", flexDirection: "row"}}>
+        </div>
+
+        <div style={{marginTop: '21px', paddingBottom: "20px", display: "flex", flexDirection: "row"}}>
           <div style={{minWidth: "300px", zIndex: "-1", border: "1px solid #111", padding: "0", marginRight: "20px", height: "fit-content" }}>
-            <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={11} scrollWheelZoom={false} jsonData={data} pageData={records} >
+            <Map className={styles.homeMap} style={{position: 'relative', }} width={100} height={100} center={DEFAULT_CENTER} zoom={11} zoomControl={false} scrollWheelZoom={false} jsonData={data} pageData={records} >
               {({ TileLayer, Marker, Popup }) => (
                 <>
                   <TileLayer

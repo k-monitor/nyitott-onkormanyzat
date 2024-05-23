@@ -34,13 +34,14 @@ export default function Home({ records, data, props }) {
         <h1>Építsünk Nyitott Önkormányzatot!</h1>
 
         <div style={{maxWidth: "800px", marginLeft: "auto", marginRight: "auto", width: "100%", backgroundColor: "var(--dark-blue)"}}>
-          <p>Itt hamarosan a K-Monitor Nyitott Önkormányzatok projekt keretében tett polgármesterjelölti vállalások lesznek böngészhetők egy interaktív térképen!</p>
-          <p>Addig is olvasd el <a href="https://drive.google.com/file/d/1bY_8IDRlutW7103vRZYfvnsUeoj8Aosy/view" target="_blank">kiadványunkat</a>, ahol hazai és nemzetközi példákkal illusztráltuk, mit értünk a gyakorlatban a nyitott önkormányzatiság alatt. </p>
+          <p>A K-Monitor a 2024-es önkormányzati választásokhoz közeledve arra ösztönzi a polgármesterjelölteket, hogy köteleződjenek el az átlátható és részvételi alapon működő önkormányzatiság mellett, a választókat pedig arra, hogy legyenek aktív szereplői a választásoknak és követeljenek maguknak valódi képviseletet! </p>
+          <p>Ezen az oldalon azokat a jelölteket és vállalásaikat lehet megtalálni, akik elköteleződtek a nyitott önkormányzatiság mellett. Látogatóként és választóként ellenőrizheted, hogy a saját településedről van-e olyan polgármesterjelölt, aki tett már vállalást. Ha többen is vannak, összevetheted a javaslataikat. Ha nem találsz a saját településedről jelöltet, küldd el neki ezt az oldalt és fogalmazd meg a saját elvárásaidat, igényeidet, hogy milyen vállalást tegyen. </p>
+          <p><a href="https://nyitottonkormanyzat.k-monitor.hu/paper" target="_blank">Kiadványunkból</a> bátran inspirálódhatsz! Hazai és nemzetközi példák segítenek eligazodni, hogy mit is értünk nyitott önkormányzat alatt.</p>
         </div>
         <div style={{display: 'flex', flexDirection: 'row'}}>
           <a className='button' style={{marginRight: '50px'}} href='https://docs.google.com/forms/d/e/1FAIpQLScGZmVAP0Ka_oGt7bhPkUmT7weW139NfeOHW-3ZYNTJT6SaPw/viewform'>Polgármesterjelölt vagyok, vállalást teszek!</a>
-          {/* <a className='button' href='/list'>Választó vagyok, megnézem a vállalásokat!</a> */}
-          <a className='disabled button'>Választó vagyok, megnézem a vállalásokat!</a>
+          <a className='button' href='/list'>Választó vagyok, megnézem a vállalásokat!</a>
+          {/* <a className='disabled button'>Választó vagyok, megnézem a vállalásokat!</a> */}
         </div>
         <footer style={{width: "100%", marginTop: "auto", backgroundColor: "var(--dark-blue)"}}>
           {/* <p>Értesülj a K-Monitor havi beszámolójából további hasonló projektekről!</p> */}
