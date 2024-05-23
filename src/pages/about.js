@@ -37,7 +37,7 @@ export default function About(props) {
         <h1>A felhasznált adatok</h1>
         <p>A Nyitott Önkormányzatok program elsődleges célközönsége azok a polgármesterjelöltek, akik megválasztásuk esetén olyan önkormányzat vezetés fogják átvenni (vagy folytatni), ahol a napi működésen túl is elvárhatóak újító kezdeményezések. Úgy gondoljuk, hogy ezeknek az önkormányzatoknak adottak leginkább a lehetőségei arra, hogy országos szinten is példaértékű gyakorlatokat valósítsanak meg és kitapossák az utat a demokratikusabb működés felé a kisebb társaik számára is. A programhoz ezért elsősorban a 30 ezer lakos feletti és a megyei jogú városok, a budapesti kerületek, valamint a fővárosi (fő)polgármesterjelöltek csatlakozását várjuk. </p>
         <p>A honlapon megtalálható adatokat (fénykép, vállalás címe, probléma megjelölése, vállalás részletei, megvalósuló eszközök) a polgármesterjelöltek küldték be önkéntesen, az <a href="https://forms.gle/fH16kcTwb6kAb4SC7" target="_blank">alábbi űrlapon</a> keresztül. A beküldött vállalásokat a K-Monitor csapata kategorizálta be, aszerint, hogy a projektterv leginkább az <span style={{color: "var(--)"}}>átláthatóság</span>, a számonkérhetőség vagy a részvételiség elvét erősítené. A neveket és jelölőszervezeteket a valasztas.hu oldalról töltöttük le. </p>
-        <p>Adatkezelési tájékoztatónk <a href="https://docs.google.com/document/d/1xVjbil5f8vi7ve6kJFblWahgvso9EBDWC0nT3Ao7QDY/" target="_blank"></a>itt elérhető.</p>
+        <p>Adatkezelési tájékoztatónk <a href="https://docs.google.com/document/d/1xVjbil5f8vi7ve6kJFblWahgvso9EBDWC0nT3Ao7QDY/" target="_blank">itt</a> elérhető.</p>
       </main>
 
       <style jsx>{`
