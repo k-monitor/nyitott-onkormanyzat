@@ -81,7 +81,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
       <div className='maindiv' style={{display: 'flex', position: 'relative', flexDirection: "row", justifyContent: "space-between"}}>
         <div style={{position: 'relative', width: '50%'}}>
           <div style={{backgroundColor: "#eee",minHeight: "auto !important", display: "flex", flexDirection: "row", margin: "0", padding: "0", marginTop: "21px", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(pageData.category), borderRight: "1px solid #111", borderTop: "1px solid #111", borderLeft: "1px solid #111", marginBottom: "10px"}}>
-            <img src={pageData.img} width="75" height="100px" style={{minHeight: "auto !important", }}></img>
+            <img src={pageData.img} style={{minHeight: "auto !important", width: "100", height:"150px" }}></img>
             <div style={{minHeight: "auto !important"}}>
               <h1 style={{marginBottom: "4px", marginTop: "10px"}}>{pageData.name}</h1>
               <p style={{marginTop: "0", marginBottom: "0", color: "var(--mid-blue)"}}><a href={'/district/'+slugify(pageData.district)}>{pageData.district}</a></p>
