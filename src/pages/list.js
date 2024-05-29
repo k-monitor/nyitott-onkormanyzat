@@ -18,7 +18,7 @@ const scp = Source_Code_Pro({ subsets: ['latin'] })
 
 export async function getStaticProps() {
   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
-  const records = await fetchCsv(url);
+  const records = (await fetchCsv(url)).filter(item => item.img && item.id && item.name && item.title);
 
   records.sort((a, b) => a.name.localeCompare(b.name))
 

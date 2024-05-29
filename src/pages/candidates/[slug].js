@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const records = await fetchCsv(url);
+  const records = (await fetchCsv(url)).filter(item => item.img && item.id && item.name && item.title);
 
   const pageData = records.find(item => item.id.toLowerCase().replace(/ /g, '-') === params.slug);
 
@@ -38,9 +38,9 @@ export async function getStaticProps({ params }) {
     options: {
       width: 1200,
       height: 600,
-      img: pageData.img,
+      img: pageData.img.trim(),
       name: pageData.name,
-      title: pageData.title,
+      title: pageData.short_title ?? pageData.title,
       problems: pageData.problems,
       details: pageData.details,
       district: pageData.district,
@@ -74,7 +74,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         <meta name="description" content={pageData.title} />
         <meta property="og:title" content={pageData.name} />
         <meta property="og:description" content={pageData.title} />
-        <meta property="og:image" content={config.baseUrl+ogImage+"?hmm=aaa"} />
+        <meta property="og:image" content={config.baseUrl+ogImage+"?hmm=aaaa"} />
         <meta property="og:url" content={config.baseUrl+'candidates/'+pageData.id} />
         <meta property="og:type" content="website" />
       </Head>

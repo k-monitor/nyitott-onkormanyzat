@@ -33,7 +33,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const records = await fetchCsv(url);
+  const records = (await fetchCsv(url)).filter(item => item.img && item.id && item.name && item.title);
   const pageData = records.filter(item => slugify(item.district) === params.slug);
 
   const dataPath = path.join(process.cwd(), 'assets', 'kozig.geojson'); // Path to your JSON file

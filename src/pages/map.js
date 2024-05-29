@@ -25,7 +25,7 @@ const DEFAULT_CENTER = [47.2195681123155,	19.077758789062504]
 
 export async function getStaticProps() {
   const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
-  const records = await fetchCsv(url);
+  const records = (await fetchCsv(url)).filter(item => item.img && item.id && item.name && item.title);
 
   const dataPath = path.join(process.cwd(), 'assets', 'kozig.geojson'); // Path to your JSON file
   const jsonData = fs.readFileSync(dataPath, 'utf8'); // Read the file
