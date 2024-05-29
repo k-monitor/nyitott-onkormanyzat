@@ -1,6 +1,6 @@
 # onkormi map
 
-Ez egy next.js projekt, amiből egy github actions generál statikus oldalt és github pagesen publikálja: https://boapps.github.io/onkormi-map/
+Ez egy next.js projekt, amiből egy github actions generál statikus oldalt és Vercelen publikálja: https://nyitottonkormanyzat.k-monitor.hu/ (dev változat: https://nyitott-onkormanyzat.vercel.app/)
 
 Az oldalt a [nerhotel](https://github.com/Code-for-Hungary/nerhotel) ihlette és sok kód lett átvéve onnan.
 
@@ -10,9 +10,11 @@ Emellett segített az elindulásban a [next-leaflet-starter](https://next-leafle
 
 ### határok
 
-A `kozig.geojson`-ban vannak a budapesti kerületek és a 30 000 fő feletti települések közigazgatási határai.
+Az `assets/kozig.geojson`-ban vannak a budapesti kerületek és a 30 000 fő feletti települések közigazgatási határai.
 
-Ezen felül hozzá lett adva: Esztergom, Szekszárd
+Ezen felül hozzá lett adva: Esztergom, Szekszárd, Fót, Vámospércs, Tésa, Dunaharaszti
+
+Újat hozzáadni úgy lehetséges, hogy a lenti geojson fájlokból átmásoljuk az adott település sorát ebbe.
 
 Forrás: openstreetmap.hu és [wikipédia](https://hu.wikipedia.org/wiki/Magyarorsz%C3%A1g_legnagyobb_telep%C3%BCl%C3%A9sei_lak%C3%B3n%C3%A9pess%C3%A9g_szerint) a népességi adatokért.
 
