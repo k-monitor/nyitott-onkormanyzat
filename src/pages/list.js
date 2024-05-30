@@ -74,10 +74,12 @@ export default function Home({ records, props }) {
                   </div>
                 ))}
             </div>
+            <footer style={{maxWidth: "800px", borderTop: "3px solid #111", paddingBottom: "20px", padding: "10px", marginLeft: "auto", marginRight: "auto"}}>A jelöltek nyílt felhívásunkra küldött vállalásait szerkesztett formában, annak tartalmi módosítása nélkül közöljük. A vállalás nyilvános közzététele a K-Monitor részéről nem jelenti a vállalt tevékenységek tartalmi jóváhagyását, vagy a jelölt támogatását. A vállalás tartalma a jelölt álláspontját tükrözi.</footer>
             </div>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", backgroundColor: "#eee", border: "2px solid #111"}}>
               <a href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
             </div>
+
           </Layout>
         </MapContext.Provider>
       </HotelContext.Provider>

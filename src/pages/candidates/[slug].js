@@ -106,6 +106,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             ))}
             </div>
           </div>
+          <footer style={{margin: "10px", marginTop: "20px"}}>A jelöltek nyílt felhívásunkra küldött vállalásait szerkesztett formában, annak tartalmi módosítása nélkül közöljük. A vállalás nyilvános közzététele a K-Monitor részéről nem jelenti a vállalt tevékenységek tartalmi jóváhagyását, vagy a jelölt támogatását. A vállalás tartalma a jelölt álláspontját tükrözi.</footer>
         </div>
         </div>
 
