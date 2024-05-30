@@ -19,7 +19,7 @@ import {catToColor, catToProjColor, catTotText } from 'src/utils/categoryColor';
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
 export async function getStaticPaths() {
-  const records = await fetchCsv(url);
+  const records = (await fetchCsv(url)).filter(item => item.img && item.id && item.name && item.title);
 
   const paths = records.map(item => ({
     params: { slug: item.id.toLowerCase().replace(/ /g, '-') },
