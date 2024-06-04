@@ -76,9 +76,9 @@ const Map = ({ children, className, width, height, jsonData, pageData, ...rest }
   const createCustomIcon = (iconUrl) => {
     return new Leaflet.Icon({
       iconUrl: iconUrl,
-      iconAnchor: new L.Point(16, 48),
+      iconAnchor: new L.Point(12, 36),
       popupAnchor: new L.Point(0, 0),
-      iconSize: new L.Point(32, 48),
+      iconSize: new L.Point(24, 36),
       iconRetinaUrl: iconUrl,
       className: 'leaflet-div-icon-transparent'
     });
