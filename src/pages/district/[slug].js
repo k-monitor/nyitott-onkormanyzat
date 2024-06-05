@@ -79,8 +79,8 @@ export default function Page({ pageData, records, props, data, districtName }) {
                     // border: "solid var(--cat-blue) 3px",
                     // borderColor: catToProjColor(record.category),
                     // backgroundColor: catToProjColor(record.category),
-                    height: "128px", width: "96px",  }}>
-                    <img src={record.img} style={{height: "128px", width: "96px"}}></img>
+                    height: "150px", width: "100px",  }}>
+                    <img src={record.img} style={{height: "150px", width: "100px"}}></img>
                   </div></a>
                   <a style={{
                     // border: "solid var(--cat-blue) 3px",
