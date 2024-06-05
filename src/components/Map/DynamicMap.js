@@ -95,7 +95,7 @@ const Map = ({ children, className, width, height, jsonData, pageData, ...rest }
               <img width={150} height={225} style={{height: "225px", width: "150px", maxWidth: 'none' }} src={record.img}></img>
             </div>
             <div style={{minWidth: "200px", display: "flex", padding: "5px", flexDirection: 'column'}}>
-              <h1 style={{margin: "0", fontSize: "18px"}}>{record.name}</h1>
+              <h1 style={{margin: "0", fontSize: "18px", marginRight: '30px'}}>{record.name}</h1>
               <p style={{margin: "0", width: "fit-content", }}><a style={{color: "var(--dark-blue)"}} href={'/district/'+slugify(record.district)}>{record.district}</a></p>
               <p style={{margin: "0", fontSize: "17px"}}>{record.title}</p>
               <Button className='candidateButton' style={{marginTop: "auto", bottom: "0", backgroundColor: "var(--dark-blue)"}} isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>
