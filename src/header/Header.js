@@ -42,7 +42,7 @@ const Header = (props) => {
             </div>
             <div className={styles.menuContainer}>
                 <button onClick={onMenuCallback} type="button" className="resetButton">
-                    <ListIcon />
+                    <ListIcon style={{fill: '#fff'}} />
                 </button>
             </div>
         </header>
