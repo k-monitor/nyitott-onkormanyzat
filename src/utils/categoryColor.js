@@ -26,9 +26,9 @@ function catToColor(category) {
   }
   function electToPin(elected) {
     switch (elected) {
-      case "TRUE":
-        return "https://nyitott-onkormanyzat.vercel.app/leaflet/images/marker-icon-red-x2.png"      
       case "FALSE":
+        return "https://nyitott-onkormanyzat.vercel.app/leaflet/images/marker-icon-red-x2.png"      
+      case "TRUE":
         return "https://nyitott-onkormanyzat.vercel.app/leaflet/images/marker-icon-green-x2.png"
     }
   }

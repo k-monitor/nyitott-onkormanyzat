@@ -2,15 +2,16 @@ import Head from 'next/head';
 import Layout from '@components/Layout';
 import { fetchCsv } from '../utils/fetchCsv';
 import { MapContext, HotelContext } from "../context";
-import { useReducer } from "react";
+import { useContext, useReducer } from "react";
 import reducer, { initialState } from "../reducer";
 // import MarkerClusterGroup from 'react-leaflet-cluster'
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import MapIcon from "../../assets/my-location.svg";
 import { FaMapMarked } from "react-icons/fa";
 import slugify from 'slugify';
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
-import {catToColor, catToProjColor} from 'src/utils/categoryColor';
+import {catToColor, catToProjColor, electToColor, electToName} from 'src/utils/categoryColor';
+import { FaVoteYea } from "react-icons/fa";
 
 const scp = Source_Code_Pro({ subsets: ['latin'] })
 
@@ -26,10 +27,19 @@ export async function getStaticProps() {
 }
 
 export default function Home({ records, props }) {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const [hotels, setHotels] = useState(records);
+  const [state] = useReducer(reducer, initialState);
+  const { dispatch, filteredRecords, map } = useContext(MapContext);
   const mapData = { ...state, dispatch };
+  const [hotels, setHotels] = useState(records);
+  const [electedOnly, setelectedOnly] = useState(false);
 
+  const clicked = (e) => {
+    setelectedOnly(!electedOnly)
+    if (electedOnly)
+      setHotels(records)
+    else
+      setHotels(records.filter((r) => r.elected == 'TRUE'))
+  }
 
   return (
     <>
@@ -46,7 +56,7 @@ export default function Home({ records, props }) {
             `}</style>
             <div style={{fontSize: '21px', display: "flex", flexDirection: "column", position: "absolute"}} className={scp.className}>
             <div style={{padding: "10px", marginLeft: "auto", marginRight: "auto"}}>
-                {records.map((record) => (
+                {hotels.map((record) => (
                   <div className='entry' style={{backgroundColor: "#eee", borderBottom: "solid var(--cat-blue) 6px", borderColor: catToColor(record.category), borderRight: "solid #777 1px",borderLeft: "solid #777 1px",borderTop: "solid #777 1px", marginLeft: "auto", marginRight: "auto", marginTop: "20px", marginBottom: "5px", alignSelf: "center", display: "flex"}}>
                     <a style={{fontSize: "25px"}} href={'/candidates/'+record.id}><div style={{
                       // border: "solid var(--cat-blue) 3px",
@@ -67,6 +77,7 @@ export default function Home({ records, props }) {
                       }} href={'/candidates/'+record.id}>
                       <div>
                       <h3 style={{margin: 0, fontSize: "20px"}}>{record.name}</h3>
+                      <p style={{border: "3px solid #111", backgroundColor: "#fff", borderColor: electToColor(record.elected), width: "fit-content", margin: "0px", padding: "4px",}}>{electToName(record.elected)}</p>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.district}</p>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.organisation}</p>
                       <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
@@ -74,11 +85,15 @@ export default function Home({ records, props }) {
                   </div>
                 ))}
             </div>
-            <footer style={{maxWidth: "800px", borderTop: "3px solid #111", paddingBottom: "20px", padding: "10px", marginLeft: "auto", marginRight: "auto"}}>A jelöltek nyílt felhívásunkra küldött vállalásait szerkesztett formában, annak tartalmi módosítása nélkül közöljük. A vállalás nyilvános közzététele a K-Monitor részéről nem jelenti a vállalt tevékenységek tartalmi jóváhagyását, vagy a jelölt támogatását. A vállalás tartalma a jelölt álláspontját tükrözi.</footer>
+            <footer style={{maxWidth: "800px", borderTop: "3px solid #111", paddingBottom: "20px", padding: "10px", marginLeft: "auto", marginRight: "auto", fontSize: "19px"}}>A jelöltek nyílt felhívásunkra küldött vállalásait szerkesztett formában, annak tartalmi módosítása nélkül közöljük. A vállalás nyilvános közzététele a K-Monitor részéről nem jelenti a vállalt tevékenységek tartalmi jóváhagyását, vagy a jelölt támogatását. A vállalás tartalma a jelölt álláspontját tükrözi.</footer>
             </div>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", backgroundColor: "#eee", border: "2px solid #111"}}>
               <a href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
             </div>
+            <div style={{top: '160px', right: '16px', width: '48px', height: '48px', backgroundColor: "#eee", border: "2px solid #111"}}>
+              <a href='#' onClick={clicked} style={{display: 'block', margin: "5px"}}><FaVoteYea  size={32} style={{pointerEvents: 'none', fill: electedOnly ? '#111':'#aaa'}}></FaVoteYea></a>
+            </div>
+
 
           </Layout>
         </MapContext.Provider>

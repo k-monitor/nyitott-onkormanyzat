@@ -6,7 +6,7 @@ import { useMapEvents } from 'react-leaflet';
 import { useState } from "react";
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
 const scp = Source_Code_Pro({ subsets: ['latin'] })
-import {catToColorName, electToPin, catToColor} from 'src/utils/categoryColor';
+import {catToColorName, electToPin, catToColor, electToColor, electToName } from 'src/utils/categoryColor';
 import Button from '@components/ui/Button';
 
 import styles from './Map.module.scss';
@@ -96,6 +96,7 @@ const Map = ({ children, className, width, height, jsonData, pageData, ...rest }
             </div>
             <div style={{minWidth: "200px", display: "flex", padding: "5px", flexDirection: 'column'}}>
               <h1 style={{margin: "0", fontSize: "18px", marginRight: '30px'}}>{record.name}</h1>
+              <p style={{border: "3px solid #111", backgroundColor: "#fff", borderColor: electToColor(record.elected), width: "fit-content", margin: "0px", padding: "4px",}}>{electToName(record.elected)}</p>
               <p style={{margin: "0", width: "fit-content", }}><a style={{color: "var(--dark-blue)"}} href={'/district/'+slugify(record.district)}>{record.district}</a></p>
               <p style={{margin: "0", fontSize: "17px"}}>{record.title}</p>
               <Button className='candidateButton' style={{marginTop: "auto", bottom: "0", backgroundColor: "var(--dark-blue)"}} isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>

@@ -18,6 +18,7 @@ import {catToColor} from 'src/utils/categoryColor';
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
 const scp = Source_Code_Pro({ subsets: ['latin'] })
 import { FaList } from "react-icons/fa";
+import { FaVoteYea } from "react-icons/fa";
 
 
 
@@ -35,9 +36,17 @@ export async function getStaticProps() {
 
 export default function Home({ records, data, props }) {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [hotels, setHotels] = useState(records);
   const mapData = { ...state, dispatch };
+  const [hotels, setHotels] = useState(records);
+  const [electedOnly, setelectedOnly] = useState(false);
 
+  const clicked = (e) => {
+    setelectedOnly(!electedOnly)
+    if (electedOnly)
+      setHotels(records)
+    else
+      setHotels(records.filter((r) => r.elected == 'TRUE'))
+  }
 
   return (
     <>
@@ -52,7 +61,7 @@ export default function Home({ records, data, props }) {
               -webkit-filter: brightness(90%);
             }
           `}</style>
-            <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={7} jsonData={data} pageData={records} >
+            <Map className={styles.homeMap} center={DEFAULT_CENTER} zoom={7} jsonData={data} pageData={hotels} >
               {({ TileLayer, Marker, Popup }) => (
                 <>
                   <TileLayer
@@ -68,6 +77,9 @@ export default function Home({ records, data, props }) {
             </Map>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px', backgroundColor: "#eee", border: "2px solid #111"}}>
               <a href='/list' style={{display: 'block', margin: "5px"}}><FaList  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaList></a>
+            </div>
+            <div style={{top: '160px', right: '16px', width: '48px', height: '48px', backgroundColor: "#eee", border: "2px solid #111"}}>
+              <a href='#' onClick={clicked} style={{display: 'block', margin: "5px"}}><FaVoteYea  size={32} style={{pointerEvents: 'none', fill: electedOnly ? '#111':'#aaa'}}></FaVoteYea></a>
             </div>
 
           </Layout>
