@@ -6,7 +6,7 @@ import { useMapEvents } from 'react-leaflet';
 import { useState } from "react";
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
 const scp = Source_Code_Pro({ subsets: ['latin'] })
-import {catToColorName, catToColor} from 'src/utils/categoryColor';
+import {catToColorName, electToPin, catToColor} from 'src/utils/categoryColor';
 import Button from '@components/ui/Button';
 
 import styles from './Map.module.scss';
@@ -86,7 +86,7 @@ const Map = ({ children, className, width, height, jsonData, pageData, ...rest }
 
 
   const markers = pageData.map((record) => {
-    const customIcon = createCustomIcon('https://nyitottonkormanyzat.k-monitor.hu/leaflet/images/marker-icon-'+catToColorName(record.category)+'-x2.png');
+    const customIcon = createCustomIcon(electToPin(record.elected));
     return (
       <ReactLeaflet.Marker key={record.id} position={[record.lat, record.long]} icon={customIcon}>
         <ReactLeaflet.Popup>

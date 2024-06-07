@@ -14,7 +14,7 @@ import styles from "../../css/map.module.css";
 import slugify from 'slugify'
 import { FacebookShareButton, FacebookIcon } from 'react-share';
 import { FaMapMarked, FaListAlt, FaList } from "react-icons/fa";
-import {catToColor, catToProjColor, catTotText } from 'src/utils/categoryColor';
+import {catToColor, catToProjColor, catTotText, electToColor, electToName } from 'src/utils/categoryColor';
 
 const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQr3xG4WxuzMC3G4sDDpdFlBT9EdOuyjTw2Xd_HHYnKzs-ptHuXH4bpH67Z1fDOiDFE0qaIYZ1OUP9x/pub?gid=0&single=true&output=csv'
 
@@ -86,6 +86,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <img src={pageData.img} style={{minHeight: "auto !important", width: "100", height:"150px" }}></img>
             <div style={{minHeight: "auto !important"}}>
               <h1 style={{marginBottom: "4px", marginTop: "10px"}}>{pageData.name}</h1>
+              <p style={{border: "3px solid #111", backgroundColor: "#fff", borderColor: electToColor(pageData.elected), width: "fit-content", margin: "0px", padding: "4px",}}>{electToName(pageData.elected)}</p>
               <p style={{marginTop: "0", marginBottom: "0", color: "var(--mid-blue)"}}><a href={'/district/'+slugify(pageData.district)}>{pageData.district}</a></p>
               <p style={{marginTop: "0", marginBottom: "5px"}}>{pageData.organisation}</p>
             </div>
