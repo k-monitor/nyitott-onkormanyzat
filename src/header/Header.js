@@ -32,7 +32,7 @@ const Header = (props) => {
                     }}
                     className={styles.logo}
                 >
-                    <Logo style={{scale:"0.9", fill: "var(--dark-blue)", width: "150px"}} />
+                    <Logo style={{scale:"0.9", fill: "#fff", width: "150px"}} />
                 </a>
             </div>
             <div className={styles.searchContainer}>
@@ -42,7 +42,7 @@ const Header = (props) => {
             </div>
             <div className={styles.menuContainer}>
                 <button onClick={onMenuCallback} type="button" className="resetButton">
-                    <ListIcon />
+                    <ListIcon style={{fill: '#fff'}} />
                 </button>
             </div>
         </header>
