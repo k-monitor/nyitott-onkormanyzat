@@ -94,9 +94,9 @@ const Map = ({ children, className, width, height, jsonData, pageData, ...rest }
             <div style={{height: "225px", width: "150px", }}>
               <img width={150} height={225} style={{height: "225px", width: "150px", maxWidth: 'none' }} src={record.img}></img>
             </div>
-            <div style={{minWidth: "200px", display: "flex", padding: "5px", flexDirection: 'column'}}>
+            <div style={{minWidth: "260px", display: "flex", padding: "5px", flexDirection: 'column'}}>
               <h1 style={{margin: "0", fontSize: "18px", marginRight: '30px'}}>{record.name}</h1>
-              <p style={{border: "3px solid #111", backgroundColor: "#fff", borderColor: electToColor(record.elected), width: "fit-content", margin: "0px", padding: "4px",}}>{electToName(record.elected)}</p>
+              <p style={{color: electToColor(record.elected), fontWeight: "bold", width: "fit-content", margin: "0px",}}>{electToName(record.elected)}</p>
               <p style={{margin: "0", width: "fit-content", }}><a style={{color: "var(--dark-blue)"}} href={'/district/'+slugify(record.district)}>{record.district}</a></p>
               <p style={{margin: "0", fontSize: "17px"}}>{record.title}</p>
               <Button className='candidateButton' style={{marginTop: "auto", bottom: "0", backgroundColor: "var(--dark-blue)"}} isPlainAnchor={true} href={config.prefix+'/'+"candidates/"+record.id+''}>Részletek</Button>

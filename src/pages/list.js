@@ -77,7 +77,7 @@ export default function Home({ records, props }) {
                       }} href={'/candidates/'+record.id}>
                       <div>
                       <h3 style={{margin: 0, fontSize: "20px"}}>{record.name}</h3>
-                      <p style={{border: "3px solid #111", backgroundColor: "#fff", borderColor: electToColor(record.elected), width: "fit-content", margin: "0px", padding: "4px",}}>{electToName(record.elected)}</p>
+                      <p style={{color: electToColor(record.elected), margin: "0px",fontWeight: "bold"}}>{electToName(record.elected)}</p>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.district}</p>
                       <p style={{margin: 0, fontSize: "15px"}}>{record.organisation}</p>
                       <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
@@ -88,10 +88,10 @@ export default function Home({ records, props }) {
             <footer style={{maxWidth: "800px", borderTop: "3px solid #111", paddingBottom: "20px", padding: "10px", marginLeft: "auto", marginRight: "auto", fontSize: "19px"}}>A jelöltek nyílt felhívásunkra küldött vállalásait szerkesztett formában, annak tartalmi módosítása nélkül közöljük. A vállalás nyilvános közzététele a K-Monitor részéről nem jelenti a vállalt tevékenységek tartalmi jóváhagyását, vagy a jelölt támogatását. A vállalás tartalma a jelölt álláspontját tükrözi.</footer>
             </div>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", backgroundColor: "#eee", border: "2px solid #111"}}>
-              <a href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
+              <a title="térkép nézet" href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
             </div>
             <div style={{top: '160px', right: '16px', width: '48px', height: '48px', backgroundColor: "#eee", border: "2px solid #111"}}>
-              <a href='#' onClick={clicked} style={{display: 'block', margin: "5px"}}><FaVoteYea  size={32} style={{pointerEvents: 'none', fill: electedOnly ? '#111':'#aaa'}}></FaVoteYea></a>
+              <a title="megválasztottak mutatása" href='#' onClick={clicked} style={{display: 'block', margin: "5px"}}><FaVoteYea  size={32} style={{pointerEvents: 'none', fill: electedOnly ? '#111':'#aaa'}}></FaVoteYea></a>
             </div>
 
 

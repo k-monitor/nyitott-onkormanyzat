@@ -86,7 +86,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <img src={pageData.img} style={{minHeight: "auto !important", width: "100", height:"150px" }}></img>
             <div style={{minHeight: "auto !important"}}>
               <h1 style={{marginBottom: "4px", marginTop: "10px"}}>{pageData.name}</h1>
-              <p style={{border: "3px solid #111", backgroundColor: "#fff", borderColor: electToColor(pageData.elected), width: "fit-content", margin: "0px", padding: "4px",}}>{electToName(pageData.elected)}</p>
+              <p style={{color: electToColor(pageData.elected), fontWeight: "bold", width: "fit-content", margin: "0px",}}>{electToName(pageData.elected)}</p>
               <p style={{marginTop: "0", marginBottom: "0", color: "var(--mid-blue)"}}><a href={'/district/'+slugify(pageData.district)}>{pageData.district}</a></p>
               <p style={{marginTop: "0", marginBottom: "5px"}}>{pageData.organisation}</p>
             </div>
@@ -126,10 +126,10 @@ export default function Page({ pageData, ogImage, records, props, data }) {
           </div>
           <div style={{justifyContent: "start", display: "flex", padding: "0",}}>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", marginBottom: "10px", backgroundColor: "#eee", border: "2px solid #111"}}>
-                <a href='/list' style={{display: 'block', margin: "5px"}}><FaList  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaList></a>
+                <a title="lista nézet" href='/list' style={{display: 'block', margin: "5px"}}><FaList  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaList></a>
             </div>
             <div style={{top: '100px', right: '16px', width: '48px', height: '48px', padding: "0", backgroundColor: "#eee", border: "2px solid #111"}}>
-              <a href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
+              <a title="térkép nézet" href='/map' style={{marginBottom: "0",display: 'block', margin: "5px"}}><FaMapMarked  size={32} style={{pointerEvents: 'none', fill: "var(--dark-blue)"}}></FaMapMarked></a>
             </div>
           </div>
         </div>
