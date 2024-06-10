@@ -12,7 +12,7 @@ import popStyles from "../../css/Popup.module.css";
 import styles from "../../css/map.module.css";
 import slugify from 'slugify'
 import { Source_Code_Pro, Montserrat } from 'next/font/google'
-import {catToColor, catToProjColor} from 'src/utils/categoryColor';
+import {catToColor, catToProjColor, catTotText, electToColor, electToName } from 'src/utils/categoryColor';
 import { FaMapMarked, FaListAlt, FaList } from "react-icons/fa";
 
 const scp = Source_Code_Pro({ subsets: ['latin'] })
@@ -94,6 +94,7 @@ export default function Page({ pageData, records, props, data, districtName }) {
                     }} href={'/candidates/'+record.id}>
                     <div>
                     <h3 style={{margin: 0, fontSize: "20px"}}>{record.name}</h3>
+                    <p style={{color: electToColor(record.elected), fontSize: "18px", fontWeight: "bold", width: "fit-content", margin: "0px",}}>{electToName(record.elected)}</p>
                     <p style={{margin: 0, fontSize: "15px"}}>{record.district}</p>
                     <p style={{margin: 0, fontSize: "15px"}}>{record.organisation}</p>
                     <p style={{margin: 0, marginTop: "5px", fontSize: "20px"}}>{record.title}</p>
