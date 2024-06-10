@@ -8,6 +8,8 @@ const mapValue = {
     locationRequired: false,
     showMenu: false,
     showList: false,
+    showElectedOnly: false,
+    filteredRecords: [],
     dispatch: () => {},
 };
 

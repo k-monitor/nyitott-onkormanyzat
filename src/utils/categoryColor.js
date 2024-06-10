@@ -8,6 +8,31 @@ function catToColor(category) {
         return "var(--cat-green)"      
     }
   }
+  function electToColor(elected) {
+    switch (elected) {
+      case "TRUE":
+        return "var(--cat-green)"      
+      case "FALSE":
+        return "var(--red)"
+    }
+  }
+  function electToName(elected) {
+    switch (elected) {
+      case "TRUE":
+        return "megválasztott"      
+      case "FALSE":
+        return "nem megválasztott"
+    }
+  }
+  function electToPin(elected) {
+    switch (elected) {
+      case "FALSE":
+        return "https://nyitott-onkormanyzat.vercel.app/leaflet/images/marker-icon-red-x2.png"      
+      case "TRUE":
+        return "https://nyitott-onkormanyzat.vercel.app/leaflet/images/marker-icon-green-x2.png"
+    }
+  }
+
   function catToFixColor(category) {
     switch (category) {
       case "atlathatosag":
@@ -51,4 +76,4 @@ function catToColor(category) {
     }
   }
 
-  export { catToColor, catToProjColor, catToFixColor, catToColorName, catTotText };
+  export { catToColor, catToProjColor, catToFixColor, catToColorName, catTotText, electToColor, electToName, electToPin };
