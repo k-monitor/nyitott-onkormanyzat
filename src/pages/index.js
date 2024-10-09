@@ -27,6 +27,7 @@ export default function Home({ records, data, props }) {
     <>
       <Head>
         <title>Nyitott önkormányzat - K-Monitor</title>
+        <meta property="og:title" content="Nyitott önkormányzat" />
       </Head>
       <main className={montserrat.className} >
         <div>
