@@ -157,7 +157,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             </div>
           }
 
-          {pageData.action_description && 
+          {pageData.action_name && 
           <div style={{paddingBottom: "10px", paddingLeft: 0, paddingRight: 0}}>
             <div style={{border: "1px solid #111"}}>
               <h2 style={{marginBottom: "0"}}>{pageData.action_name}</h2>
@@ -168,7 +168,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
   
             <div style={{marginBottom: "10px", marginTop: "10px", padding: "0px", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row"}}>
               <hr style={{flex: 1, border: "none", borderTop: "1px solid #ccc", margin: "0 10px"}} />
-              <p style={{padding: 0, margin: 0, whiteSpace: "nowrap"}}>korábbról</p>
+              <p style={{padding: 0, margin: 0, whiteSpace: "nowrap"}}>Választások előtt tett vállalás</p>
               <hr style={{flex: 1, border: "none", borderTop: "1px solid #ccc", margin: "0 10px"}} />
             </div>
           </div>
