@@ -162,7 +162,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             <div style={{border: "1px solid #111"}}>
               <h2 style={{marginBottom: "0"}}>{pageData.action_name}</h2>
               <p>Tervezett befejezés: {pageData.action_date}</p>
-              <p>{pageData.action_description}</p>
+              <p style={{whiteSpace: 'pre-wrap'}}>{pageData.action_description}</p>
               {pageData.action_link && <a href={pageData.action_link} id="response_link" target='_blank'>bővebben</a>}
             </div>
   
