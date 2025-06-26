@@ -164,6 +164,7 @@ export default function Page({ pageData, ogImage, records, props, data }) {
               <p>Tervezett befejezés: {pageData.action_date}</p>
               <p style={{whiteSpace: 'pre-wrap'}}>{pageData.action_description}</p>
               {pageData.action_link && <a href={pageData.action_link} id="response_link" target='_blank'>bővebben</a>}
+              {pageData.updated && <p style={{fontSize: "12px", color: "#666", marginLeft: "auto"}}>Utolsó frissítés: {pageData.updated}</p>}
             </div>
   
             <div style={{marginBottom: "10px", marginTop: "10px", padding: "0px", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row"}}>
