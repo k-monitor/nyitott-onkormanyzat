@@ -63,6 +63,62 @@ export default function Page({ pageData, ogImage, records, props, data }) {
   const mapData = { ...state, dispatch };
   const [hotels, setHotels] = useState(records);
   const DEFAULT_CENTER = [pageData.lat, pageData.long]
+  
+  const getStatusMessage = (state) => {
+    switch(parseInt(state)) {
+      case 1: return "Nincs elkezdve/Nincs információ";
+      case 2: return "Elakadva/Felfüggesztve";
+      case 3: return "Döntéselőkészítés";
+      case 4: return "Végrehajtás";
+      case 5: return "Megvalósítva";
+      default: return "Nincs információ";
+    }
+  };
+
+  const getStatusTable = () => {
+    const statuses = [
+      "Nincs elkezdve/Nincs információ",
+      "Elakadva/Felfüggesztve", 
+      "Döntéselőkészítés",
+      "Végrehajtás",
+      "Megvalósítva"
+    ];
+    
+    const currentState = parseInt(pageData.state) || 0;
+    
+    return (
+      <table style={{width: "100%", marginTop: "10px"}}>
+        <tbody>
+          <tr>
+            {statuses.map((status, index) => (
+              <td key={index} style={{
+                textAlign: "center", 
+                padding: "5px", 
+                verticalAlign: "top",
+                width: "20%"
+              }}>
+                <div style={{
+                  fontSize: "36px", 
+                  color: currentState === index + 1 ? "var(--mid-blue)" : "#ccc",
+                  marginBottom: "5px"
+                }}>
+                  •
+                </div>
+                <div style={{
+                  fontSize: "12px", 
+                  color: currentState === index + 1 ? "var(--mid-blue)" : "#666",
+                  fontWeight: currentState === index + 1 ? "bold" : "normal",
+                  lineHeight: "1.2"
+                }}>
+                  {status}
+                </div>
+              </td>
+            ))}
+          </tr>
+        </tbody>
+      </table>
+    );
+  };
 
   return (
     <>
@@ -92,6 +148,33 @@ export default function Page({ pageData, ogImage, records, props, data }) {
             </div>
             <FacebookShareButton style={{ width: '64px', height: '64px', marginLeft: "auto", marginTop: "10px", marginRight: "10px"}} url={config.baseUrl+'candidates/'+pageData.id}><FacebookIcon></FacebookIcon></FacebookShareButton>
           </div>
+          {(pageData.state_comment || pageData.state) && 
+            <div style={{paddingBottom: "10px", paddingLeft: 0, paddingRight: 0}}>
+              <div style={{border: "1px solid #111", padding: "10px"}}>
+                {getStatusTable()}
+                {pageData.state_comment && <p style={{padding: "10px"}}>{pageData.state_comment}</p>}
+              </div>
+            </div>
+          }
+
+          {pageData.action_name && 
+          <div style={{paddingBottom: "10px", paddingLeft: 0, paddingRight: 0}}>
+            <div style={{border: "1px solid #111"}}>
+              <h2 style={{marginBottom: "0"}}>{pageData.action_name}</h2>
+              <p>Tervezett befejezés: {pageData.action_date}</p>
+              <p style={{whiteSpace: 'pre-wrap'}}>{pageData.action_description}</p>
+              {pageData.action_link && <a href={pageData.action_link} id="response_link" target='_blank'>bővebben</a>}
+              {pageData.updated && <p style={{fontSize: "12px", color: "#666", marginLeft: "auto"}}>Utolsó frissítés: {pageData.updated}</p>}
+            </div>
+  
+            <div style={{marginBottom: "10px", marginTop: "10px", padding: "0px", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "row"}}>
+              <hr style={{flex: 1, border: "none", borderTop: "1px solid #ccc", margin: "0 10px"}} />
+              <p style={{padding: 0, margin: 0, whiteSpace: "nowrap"}}>Választások előtt tett vállalás</p>
+              <hr style={{flex: 1, border: "none", borderTop: "1px solid #ccc", margin: "0 10px"}} />
+            </div>
+          </div>
+          }
+
           <div style={{border: "1px solid #111"}}>
             <div style={{position: "absolute", right: "20px", border: "3px solid #111", backgroundColor: "#eee", borderColor: catToColor(pageData.category), width: "fit-content", margin: "20px", padding: "4px"}}>{catTotText(pageData.category)}</div>
             <h2 style={{marginBottom: "0"}}>Vállalás címe</h2>
@@ -157,6 +240,13 @@ export default function Page({ pageData, ogImage, records, props, data }) {
         p {
           font-size: 1.2em;
           color: #555;
+        }
+
+        #response_link {
+          color: var(--dark-blue);
+          font-weight: bold;
+          text-decoration: underline;
+          padding-bottom: 10px;
         }
 
         @media only screen and (max-width: 800px) {
